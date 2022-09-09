@@ -1,0 +1,14 @@
+# This is Git's per-user configuration file.
+[user]
+# Please adapt and uncomment the following lines:
+
+#	name = AtelierFox
+#	email = diserata@pm.me
+[core]
+	editor = vim
+
+[merge]
+	conflictstyle = diff3
+[alias]
+	tree = log --graph --decorate --abbrev-commit --all --oneline
+[safe]
