@@ -134,6 +134,10 @@ au FileType javascript call JavaScriptFold()
 set conceallevel=2
 hi Conceal ctermfg=231 ctermbg=233
 
+" Use whitespace-alignment allowing algo for airline
+let g:airline#extensions#whitespace#mixed_indent_algo = 2
+let g:airline#extensions#whitespace#skip_indent_check_ft =                                                             
+   \  {'markdown': ['mixed-indent-file']}    
 " Filetype dependant tabs because tabstops are better
 autocmd FileType txt setlocal shiftwidth=2 tabstop=2 noexpandtab spell!
-
+autocmd FileType md setlocal shiftwidth=2 tabstop=2 noexpandtab spell!
