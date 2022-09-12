@@ -11,3 +11,6 @@ echo "Done creating directories"
 
 echo "Installing Vundle..."
 git clone https://github.com/VundleVim/Vundle.vim.git $HOME/.vim/bundle/Vundle.vim
+
+echo "Installing Vundle Plugins..."
+vim +PluginInstall +qall
