@@ -12,3 +12,6 @@
 [alias]
 	tree = log --graph --decorate --abbrev-commit --all --oneline
 [safe]
+
+[branch]                                                                                                                 
+  autosetuprebase = always
