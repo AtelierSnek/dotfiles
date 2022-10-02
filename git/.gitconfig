@@ -2,7 +2,7 @@
 [user]
 # Please adapt and uncomment the following lines:
 
-#	name = AtelierFox
+#	name = AtelierSnek
 #	email = diserata@pm.me
 [core]
 	editor = vim
