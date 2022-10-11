@@ -4,7 +4,7 @@ if ! [ -x "$(command -v git)" ]; then
   exit 1
 fi
 
-if ! [ -x "$(command -v vim)"]; then
+if ! [ -x "$(command -v vim)" ]; then
   echo 'Error: vim is not installed.' >&2
   exit 1
 fi
