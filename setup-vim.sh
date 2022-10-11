@@ -9,6 +9,17 @@ if ! [ -x "$(command -v vim)" ]; then
   exit 1
 fi
 
+if ! [ -x "$(command -v python3)" ]; then
+  echo 'Error: python3 is not installed.' >&2
+  exit 1
+fi
+
+if ! [ -x "$(command -v cmake)" ]; then
+  echo 'Error: cmake is not installed.' >&2
+  exit 1
+fi
+
+
 echo "Creating required directories..."
 mkdir $HOME/.vim
 mkdir $HOME/.vim/swap
@@ -19,3 +30,6 @@ git clone https://github.com/VundleVim/Vundle.vim.git $HOME/.vim/bundle/Vundle.v
 
 echo "Installing Vundle Plugins..."
 vim +PluginInstall +qall
+
+echo "Configuring YouCompleteMe!"
+python3 $HOME/.vim/bundle/YouCompleteMe/install.py --all
