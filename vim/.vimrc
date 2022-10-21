@@ -91,7 +91,7 @@ set mouse=a                                   " Allow mouse navigation and inter
 " Open new split panes to right and bottom, which feels more natural
 set splitbelow
 set splitright
-
+set modeline                                  " Allow modelines - they're useful
 
 
 "YCM settings
@@ -115,6 +115,9 @@ nmap <silent> <C-Right> :wincmd l<CR>
 map <Space> \\w
 
 map <leader>ss :setlocal spell!<cr>
+
+
+map <leader>l :set list!<cr>
 
 " Map enter to clear highlighted search hits
 nnoremap <CR> :nohlsearch<CR><CR>
