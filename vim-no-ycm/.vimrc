@@ -14,7 +14,7 @@ Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 
 " original repos on github
-"Plugin 'Valloric/YouCompleteMe' #This doesn't work on Alpine - TODO figure out if it's fixable
+"Plugin 'Valloric/YouCompleteMe'
 Plugin 'scrooloose/syntastic'
 Plugin 'majutsushi/tagbar'
 Plugin 'klen/python-mode'
@@ -87,10 +87,11 @@ set foldlevel=1
 set hlsearch                                  " Highlight all search hits
 set nospell                                   " Disable spell checking
 set colorcolumn=121                           " Highlight column 121 for line length indicator
+set mouse=a                                   " Allow mouse navigation and interaction
 " Open new split panes to right and bottom, which feels more natural
 set splitbelow
 set splitright
-
+set modeline                                  " Allow modelines - they're useful
 
 
 "YCM settings
@@ -115,6 +116,9 @@ map <Space> \\w
 
 map <leader>ss :setlocal spell!<cr>
 
+
+map <leader>l :set list!<cr>
+
 " Map enter to clear highlighted search hits
 nnoremap <CR> :nohlsearch<CR><CR>
 
@@ -132,7 +136,7 @@ au FileType javascript call JavaScriptFold()
 
 " Conceal
 set conceallevel=2
-hi Conceal ctermfg=231 ctermbg=233
+hi Conceal ctermfg=6 ctermbg=1
 
 " Use whitespace-alignment allowing algo for airline
 let g:airline#extensions#whitespace#mixed_indent_algo = 2
