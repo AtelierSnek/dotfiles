@@ -113,9 +113,9 @@ nmap <silent> <C-Right> :wincmd l<CR>
 
 " Remap space for use with easymotion
 map <Space> \\w
+map <leader><Space> \\b
 
 map <leader>ss :setlocal spell!<cr>
-
 
 map <leader>l :set list!<cr>
 
