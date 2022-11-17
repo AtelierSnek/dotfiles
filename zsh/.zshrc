@@ -73,8 +73,11 @@ HIST_STAMPS="dd/mm/yyyy"
 # ZSH_CUSTOM=/path/to/new-custom-folder
 
 # Figure out what distro we're on
-export $(grep "^ID" /etc/os-release)
-
+if [ $(uname) = "Darwin" ]; then
+  export ID=darwin # macOS doesn't provide /etc/os-relase :/
+else
+  export $(grep "^ID" /etc/os-release)
+fi
 # Which plugins would you like to load?
 # Standard plugins can be found in $ZSH/plugins/
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
