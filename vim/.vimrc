@@ -143,5 +143,8 @@ let g:airline#extensions#whitespace#mixed_indent_algo = 2
 let g:airline#extensions#whitespace#skip_indent_check_ft =                                                             
    \  {'markdown': ['mixed-indent-file']}    
 " Filetype dependant tabs because tabstops are better
-autocmd FileType txt setlocal shiftwidth=2 tabstop=2 noexpandtab spell
-autocmd FileType md setlocal shiftwidth=2 tabstop=2 noexpandtab spell
+autocmd FileType txt setlocal shiftwidth=2 tabstop=2 spell!
+autocmd FileType md setlocal shiftwidth=2 tabstop=2 spell!
+
+" Disable "recommended style" as it uses 4 space tabs
+let g:markdown_recommended_style = 0
