@@ -54,7 +54,7 @@ ZSH_THEME="powerlevel10k/powerlevel10k"
 # You can also set it to another string to have that shown instead of the default red dots.
 # e.g. COMPLETION_WAITING_DOTS="%F{yellow}waiting...%f"
 # Caution: this setting can cause issues with multiline prompts in zsh < 5.7.1 (see #5765)
-COMPLETION_WAITING_DOTS="%F{yellow}..."
+COMPLETION_WAITING_DOTS="%F{yellow}...%f"
 
 # Uncomment the following line if you want to disable marking untracked files
 # under VCS as dirty. This makes repository status check for large repositories
@@ -72,12 +72,34 @@ HIST_STAMPS="dd/mm/yyyy"
 # Would you like to use another custom folder than $ZSH/custom?
 # ZSH_CUSTOM=/path/to/new-custom-folder
 
+# Figure out what distro we're on
+export $(grep "^ID" /etc/os-release)
+
 # Which plugins would you like to load?
 # Standard plugins can be found in $ZSH/plugins/
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git colored-man-pages stack virtualenv svn rust pip pipenv npm colorize)
+plugins=(
+  colorize
+  git
+  colored-man-pages 
+  stack
+  virtualenv
+  rust
+  pip
+  pipenv
+  npm
+  you-should-use
+  zsh-autosuggestions)
+
+if [ ID = "arch" ]; then
+  plugins+=(archlinux)
+  source .zsh-arch # Source sway and Arch-specific hacks
+fi
+
+# Position you-should-use messages after command execution
+export YSU_MESSAGE_POSITION="after"
 
 source $ZSH/oh-my-zsh.sh
 
@@ -114,6 +136,7 @@ source $ZSH/oh-my-zsh.sh
 #Prevent IDEA/Android Studio from dying due to reparenting issues in Wayland
 #export _JAVA_AWT_WM_NONREPARENTING=1
 
+
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
@@ -121,4 +144,3 @@ source $ZSH/oh-my-zsh.sh
 autoload -Uz history-beginning-search-menu
 zle -N history-beginning-search-menu
 bindkey '^X^X' history-beginning-search-menu
-
