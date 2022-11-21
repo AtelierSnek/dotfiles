@@ -136,7 +136,10 @@ au FileType javascript call JavaScriptFold()
 
 " Conceal
 set conceallevel=2
-hi Conceal ctermfg=6 ctermbg=1
+hi Conceal ctermfg=4 ctermbg=0
+
+" Fold settings
+hi Folded ctermfg=4 ctermbg=0
 
 " Use whitespace-alignment allowing algo for airline
 let g:airline#extensions#whitespace#mixed_indent_algo = 2
