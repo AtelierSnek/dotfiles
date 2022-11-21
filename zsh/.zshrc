@@ -94,12 +94,8 @@ plugins=(
   pipenv
   npm
   you-should-use
-  zsh-autosuggestions)
-
-if [ ID = "arch" ]; then
-  plugins+=(archlinux)
-  source .zsh-arch # Source sway and Arch-specific hacks
-fi
+  zsh-autosuggestions
+)
 
 # Position you-should-use messages after command execution
 export YSU_MESSAGE_POSITION="after"
@@ -139,6 +135,14 @@ source $ZSH/oh-my-zsh.sh
 #Prevent IDEA/Android Studio from dying due to reparenting issues in Wayland
 #export _JAVA_AWT_WM_NONREPARENTING=1
 
+if [ $ID = "arch" ]; then
+  plugins+=(archlinux)
+  . ~/.zsh-arch # Source Arch-specific hacks
+  if [ -z $DISPLAY ] && [ "$(tty)" = "/dev/tty1" ];then
+    . ~/bgStuff.sh
+    exec dbus-run-session sway
+  fi
+fi
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
@@ -147,3 +151,4 @@ source $ZSH/oh-my-zsh.sh
 autoload -Uz history-beginning-search-menu
 zle -N history-beginning-search-menu
 bindkey '^X^X' history-beginning-search-menu
+
