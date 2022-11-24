@@ -32,6 +32,10 @@ Plugin 'Lokaltog/vim-easymotion'
 " Rainbow parens
 Plugin 'frazrepo/vim-rainbow'
 
+if findfile("~/.vimrc-notx")
+    source .vimrc-notx " If it does, load in some themes since the term isn't transparent
+endif
+
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required

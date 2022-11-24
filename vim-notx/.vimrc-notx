@@ -1,0 +1,13 @@
+
+" Pull in everforest
+Plugin 'sainnhe/everforest'
+
+" Set its contrast (options are hard, medium, soft)
+let g:everforest_background = 'soft'
+
+" For better performance
+let g:everforest_better_performance = 1
+
+" Set the colorscheme
+colorscheme everforest
+
