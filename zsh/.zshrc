@@ -83,6 +83,7 @@ fi
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
+
 plugins=(
   colorize
   git
@@ -128,13 +129,7 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
-#Export ENV Vars
-#Export Tray Type -- Should only be required on Wayland
-#export XDG_CURRENT_DESKTOP=Unity
-
-#Prevent IDEA/Android Studio from dying due to reparenting issues in Wayland
-#export _JAVA_AWT_WM_NONREPARENTING=1
-
+# Check if we're on arch, and load customisations if we are.
 if [ $ID = "arch" ]; then
   plugins+=(archlinux)
   . ~/.zsh-arch # Source Arch-specific hacks
@@ -142,6 +137,11 @@ if [ $ID = "arch" ]; then
     . ~/bgStuff.sh
     exec dbus-run-session sway
   fi
+fi
+
+# check if we're at work
+if [[ -f ~/.zsh-work ]]; then
+  source ~/.zsh-work # pull in proxy settings at work
 fi
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
