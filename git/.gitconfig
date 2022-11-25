@@ -2,8 +2,8 @@
 [user]
 # Please adapt and uncomment the following lines:
 
-#	name = AtelierSnek
-#	email = diserata@pm.me
+#	name = Rin
+#	email = rin@rin.systems
 [core]
 	editor = vim
 
@@ -15,3 +15,6 @@
 
 [branch]
   autosetuprebase = always
+
+[rebase]
+  autoStash = true
