@@ -101,6 +101,11 @@ plugins=(
 # Position you-should-use messages after command execution
 export YSU_MESSAGE_POSITION="after"
 
+# ZSH Autosuggestions options
+# Ignore all git commands and anything over 50 chars
+export ZSH_AUTOSUGGEST_COMPLETION_IGNORE="(git *)|?(#c50,)"
+export ZSH_AUTOSUGGEST_HISTORY_IGNORE="(gcmsg|gbd|ga|gd *)|(git *)|?(#c50,)"
+
 source $ZSH/oh-my-zsh.sh
 
 # User configuration
