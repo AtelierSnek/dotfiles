@@ -1,12 +1,18 @@
 
-" Pull in everforest
-Plugin 'sainnhe/everforest'
+" Important!!
+if has('termguicolors')
+  set termguicolors
+endif
+" For dark version.
+set background=dark
 
 " Set its contrast (options are hard, medium, soft)
 let g:everforest_background = 'soft'
 
 " For better performance
 let g:everforest_better_performance = 1
+
+let g:airline_theme = 'everforest'
 
 " Set the colorscheme
 colorscheme everforest

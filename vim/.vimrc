@@ -1,6 +1,12 @@
 set nocompatible
 filetype off                  " required
 
+function! SourceIfExists(file)
+  if filereadable(expand(a:file))
+    exe 'source' a:file
+  endif
+endfunction
+
 " set the runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
@@ -32,9 +38,8 @@ Plugin 'Lokaltog/vim-easymotion'
 " Rainbow parens
 Plugin 'frazrepo/vim-rainbow'
 
-if findfile("~/.vimrc-notx")
-    source .vimrc-notx " If it does, load in some themes since the term isn't transparent
-endif
+" Themes
+Plugin 'sainnhe/everforest'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -155,3 +160,9 @@ autocmd FileType md setlocal shiftwidth=2 tabstop=2 spell!
 
 " Disable "recommended style" as it uses 4 space tabs
 let g:markdown_recommended_style = 0
+
+" Source in our theme if we're on a non-transparent terminal
+call SourceIfExists("~/.vimrc-everforest")
+
+" Fix broken backgrounds on kitty
+let &t_ut=''
