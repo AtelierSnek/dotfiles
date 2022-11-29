@@ -76,7 +76,7 @@ HIST_STAMPS="dd/mm/yyyy"
 if [ $(uname) = "Darwin" ]; then
   export ID=darwin # macOS doesn't provide /etc/os-relase :/
 else
-  export $(grep "^ID" /etc/os-release)
+  export $(grep "^ID=" /etc/os-release)
 fi
 # Which plugins would you like to load?
 # Standard plugins can be found in $ZSH/plugins/
