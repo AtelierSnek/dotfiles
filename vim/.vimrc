@@ -161,8 +161,9 @@ autocmd FileType md setlocal shiftwidth=2 tabstop=2 spell!
 " Disable "recommended style" as it uses 4 space tabs
 let g:markdown_recommended_style = 0
 
-" Source in our theme if we're on a non-transparent terminal
-call SourceIfExists("~/.vimrc-everforest")
+" Source in our theme if we're on a non-transparent terminal, or somewhere we
+" care about distinguishing things
+call SourceIfExists("~/.vim-theme")
 
 " Fix broken backgrounds on kitty
 let &t_ut=''
