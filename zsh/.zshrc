@@ -110,6 +110,11 @@ export YSU_MESSAGE_POSITION="after"
 export ZSH_AUTOSUGGEST_COMPLETION_IGNORE="(git *)|?(#c50,)"
 export ZSH_AUTOSUGGEST_HISTORY_IGNORE="(gcmsg|gbd|ga|gd *)|(git *)|?(#c50,)"
 
+# Ignore things in history
+export ZSH_AUTOSUGGEST_CLEAR_WIDGETS=(
+  history-beginning-search-menu
+)
+
 source $ZSH/oh-my-zsh.sh
 
 # User configuration
