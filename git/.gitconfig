@@ -1,7 +1,5 @@
 # This is Git's per-user configuration file.
 [user]
-# Please adapt and uncomment the following lines:
-
 #	name = Rin
 #	email = rin@rin.systems
 [core]
@@ -18,3 +16,5 @@
 
 [rebase]
   autoStash = true
+[pull]
+  rebase = true
