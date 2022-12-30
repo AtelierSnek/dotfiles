@@ -1,15 +1,20 @@
 # This is Git's per-user configuration file.
-[user]
-#	name = Rin
-#	email = rin@rin.systems
+
+#Include our default user config, if any
+[include]
+  path = ~/default-user.gitconfig
+
+[includeIf "hasconfig:remote.*.url:ssh://gitea.treehouse.systems/**"]
+  path = ~/treehouse-user.gitconfig
+
 [core]
-	editor = vim
+  editor = vim
 
 [merge]
-	conflictstyle = diff3
+  conflictstyle = diff3
+
 [alias]
-	tree = log --graph --decorate --abbrev-commit --all --oneline
-[safe]
+  tree = log --graph --decorate --abbrev-commit --all --oneline
 
 [branch]
   autosetuprebase = always

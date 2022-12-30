@@ -1,0 +1,6 @@
+[user]
+  name = Rin
+  email = rin@rin.systems
+
+[commit]
+  gpgsign = true
