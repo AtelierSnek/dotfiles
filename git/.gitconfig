@@ -2,10 +2,10 @@
 
 #Include our default user config, if any
 [include]
-  path = ~/default-user.gitconfig
+  path = ~/.default-user.gitconfig
 
 [includeIf "hasconfig:remote.*.url:ssh://gitea.treehouse.systems/**"]
-  path = ~/treehouse-user.gitconfig
+  path = ~/.treehouse-user.gitconfig
 
 [core]
   editor = vim
