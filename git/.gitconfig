@@ -4,7 +4,7 @@
 [include]
   path = ~/.default-user.gitconfig
 
-[includeIf "hasconfig:remote.*.url:ssh://gitea.treehouse.systems/**"]
+[includeIf "hasconfig:remote.*.url:*gitea.treehouse.systems/**"]
   path = ~/.treehouse-user.gitconfig
 
 [core]
