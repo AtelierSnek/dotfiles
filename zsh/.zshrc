@@ -139,6 +139,15 @@ source $ZSH/oh-my-zsh.sh
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
 # Check if we're on arch, and load customisations if we are.
+# TODO: Fix this up for fedora once bg-stuff is merged
+if [ $ID = "fedora" ]; then
+   if [ -z $DISPLAY ] && [ "$(tty)" = "/dev/tty1" ];then
+    exec dbus-run-session sway
+  fi
+fi
+
+ 
+
 if [ $ID = "arch" ]; then
   plugins+=(archlinux)
   . ~/.zsh-arch # Source Arch-specific hacks
