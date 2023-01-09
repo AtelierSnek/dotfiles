@@ -28,6 +28,9 @@ input type:touchpad {
 # and nm-applet is a desktop environment-independent system tray GUI for it.
 exec --no-startup-id nm-applet
 
+# Start mako when sway starts
+exec --no-startup-id mako
+
 # Use pactl to adjust volume in PulseAudio.
 set $refresh_i3status killall -SIGUSR1 i3status
 bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +2%
@@ -41,16 +44,15 @@ focus_follows_mouse no
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
 
-# start a terminal
-bindsym $mod+Return exec kitty
-
 # kill focused window
 bindsym $mod+Shift+q kill
 
 # start dmenu (a program launcher)
 # bindsym $mod+d exec --no-startup-id "dmenu_run -nf '#BBBBBB' -nb '#222222' -sb '#005577' -sf '#EEEEEE' -fn 'monospace-10'"
 # A more modern dmenu replacement is rofi:
-bindcode $mod+40 exec "rofi -modi drun,run -show drun"
+#bindsym $mod+d exec "rofi -modi drun,run -show drun"
+bindsym $mod+d exec --no-startup-id rofi -show drun -run-shell-command '{terminal} -e zsh -ic "{cmd} && read"'
+
 # There also is i3-dmenu-desktop which only displays applications shipping a
 # .desktop file. It is a wrapper around dmenu, so you need that installed.
 # bindcode $mod+40 exec --no-startup-id i3-dmenu-desktop
@@ -129,6 +131,7 @@ bindsym $mod+7 workspace number $ws7
 bindsym $mod+8 workspace number $ws8
 bindsym $mod+9 workspace number $ws9
 bindsym $mod+0 workspace number $ws10
+bindsym $mod+Equal scratchpad show
 
 # move focused container to workspace
 bindsym $mod+Shift+1 move container to workspace number $ws1
@@ -141,6 +144,7 @@ bindsym $mod+Shift+7 move container to workspace number $ws7
 bindsym $mod+Shift+8 move container to workspace number $ws8
 bindsym $mod+Shift+9 move container to workspace number $ws9
 bindsym $mod+Shift+0 move container to workspace number $ws10
+bindsym $mod+Shift+Equal move container to scratchpad
 
 # reload the configuration file
 bindsym $mod+Shift+c reload
@@ -152,7 +156,7 @@ bindsym $mod+Shift+e exec "swaynag -t warning -m 'Do you really want to exit swa
 # Hibernate
 bindsym $mod+Shift+z exec "swaynag -t warning -m 'Bed times?!' -b 'ZzZz...' 'systemctl hibernate'"
 # Suspend
-bindsym $mod+Shift+Escape exec "swaynag -t warning -m 'Nap times?! -b 'Yay!' 'systemctl suspend'"
+bindsym $mod+Shift+Escape exec "swaynag -t warning -m 'Nap times?!' -b 'Yay!' 'systemctl suspend'"
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
@@ -193,22 +197,31 @@ bindsym XF86MonBrightnessDown exec light -U 10
 bindsym Ctrl+XF86MonBrightnessUp exec light -A 5
 bindsym Ctrl+XF86MonBrightnessDown exec light -U 5
 
+# ==== Terminals ====
+# start a terminal
+bindsym $mod+Return exec kitty
 
-# Class Assignments
+# ==== Class Assignments & Window Options ====
 # TODO: Add more of these
+# Assign Applications to default locations
 assign [class="Vivaldi"] $ws2
 assign [class="discord"] $ws3
 assign [class="Steam"] $ws5
 assign [class="Plex"] $ws6
 
-#Sticky Windows
+# Certain Windows should float by default
+#for_window [name="Activation"] floating
+
+# Sticky Windows
 for_window [instance="file_progress"] sticky enable
+
+# Floating Windows should have a title
+for_window [floating] border normal
 
 #Don't automatically focus on popped windows
 no_focus [window_role="pop-up"]
 
 #Screenshotting
-#TODO: Fix this! - maim doesn't seem to capture terminals correctly
 bindsym Shift+Alt+1 exec "grim -t png $HOME/Pictures/ss-$(date +%Y-%m-%d_%H-%M-%S).png"
 bindsym Shift+Alt+2 exec "slurp -d | grim -t png -g - $HOME/Pictures/ss-$(date +%Y-%m-%d_%H-%M-%S).png"
 bindsym Shift+Alt+3 exec "grim -t png - | wl-copy"
@@ -218,9 +231,13 @@ bindsym Shift+Alt+4 exec "slurp -d | grim -t png -g - - | wl-copy"
 
 gaps inner 3
 gaps outer 3
+
 corner_radius 12
-#smart_gaps on
-#hide_edge_borders both
+
+default_border pixel 1
+
+# smart_gaps on
+hide_edge_borders both
 
 bar {
   swaybar_command waybar

@@ -13,41 +13,29 @@
 
 	"layer": "top",
 	"position": "bottom",
-	"height": 36,
-
-	"modules-left": [
+  "margin": "0 8 4 8",
+  "modules-left": [
 		"sway/mode",
 		"sway/workspaces",
-		"idle_inhibitor",
-		"custom/arrow10",
+		"idle_inhibitor"
+	],
+
+	"modules-center": [
 		"sway/window"
 	],
 
-	//"modules-center": [
-	//	"sway/window"
-	//],
-
 	"modules-right": [
-		//"custom/arrow1",
 		//"custom/alsa",
 		//"pulseaudio",
 		//"sndio",
-		"custom/arrow2",
 		"network",
-		"custom/arrow3",
 		"memory",
-		"custom/arrow4",
 		"cpu",
-		"custom/arrow5",
 		"temperature",
-		"custom/arrow6",
 		"disk",
-		//"custom/arrow7",
-		//"battery",
-		"custom/arrow8",
+		"battery",
 		"tray",
 		"clock#date",
-		"custom/arrow9",
 		"clock#time"
 	],
 
@@ -61,14 +49,14 @@
 			"warning": 30,
 			"critical": 15
 		},
-		"format": " {capacity}%", // Icon: bolt
-		"format-discharging": "{icon} {capacity}%",
+		"format":"ﮣ {capacity}%", // Icon: bolt
+		"format-discharging": "{icon}  {capacity}%",
 		"format-icons": [
-			"", // Icon: battery-full
-			"", // Icon: battery-three-quarters
-			"", // Icon: battery-half
-			"", // Icon: battery-quarter
-			""  // Icon: battery-empty
+			"", // Icon: battery-empty
+			"", // Icon: battery-one-quarter
+			"", // Icon: battery-half
+			"", // Icon: battery-three-quarter
+			""  // Icon: battery-full
 		],
 		"tooltip": false
 	},
