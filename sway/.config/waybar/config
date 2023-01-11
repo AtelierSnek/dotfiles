@@ -213,8 +213,8 @@
 	},
 
 	"tray": {
-		"icon-size": 21
-		//"spacing": 10
+		"icon-size": 21,
+		"spacing": 10
 	},
 
 	"custom/arrow1": {
