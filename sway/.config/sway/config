@@ -210,7 +210,10 @@ assign [class="Steam"] $ws5
 assign [class="Plex"] $ws6
 
 # Certain Windows should float by default
-#for_window [name="Activation"] floating
+for_window [title="Activation"] floating enable
+
+for_window [title="Steam - News"] floating enable
+for_window [title="Friends List"] floating enable
 
 # Sticky Windows
 for_window [instance="file_progress"] sticky enable
