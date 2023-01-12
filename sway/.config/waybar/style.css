@@ -98,7 +98,7 @@
 	color: @light;
 	font-family: FiraCode Nerd Font, Terminus, Siji;
 	font-size: 12pt;
-	/*font-weight: bold;*/
+  font-weight: bold;
 }
 
 .modules-left,
@@ -189,8 +189,8 @@
 #idle_inhibitor {
 	color: @dark;
 	background: @workspaces;
-	padding-left: 6px;
-	padding-right: 6px;
+	padding-left: 8px;
+	padding-right: 10px;
 }
 
 #workspaces button.focused {
@@ -262,62 +262,3 @@
 	/* No styles */
 }
 
-#custom-arrow1 {
-	font-size: 32px;
-	color: @sound;
-	background: transparent;
-}
-
-#custom-arrow2 {
-	font-size: 32px;
-	color: @network;
-	background: transparent;
-}
-
-#custom-arrow3 {
-	font-size: 32px;
-	color: @memory;
-	background: @network;
-}
-
-#custom-arrow4 {
-	font-size: 32px;
-	color: @cpu;
-	background: @memory;
-}
-
-#custom-arrow5 {
-	font-size: 32px;
-	color: @temp;
-	background: @cpu;
-}
-
-#custom-arrow6 {
-	font-size: 32px;
-	color: @layout;
-	background: @temp;
-}
-
-#custom-arrow7 {
-	font-size: 32px;
-	color: @date;
-	background: @layout;
-}
-
-#custom-arrow8 {
-	font-size: 32px;
-	color: @date;
-	background: @layout;
-}
-
-#custom-arrow9 {
-	font-size: 32px;
-	color: @time;
-	background: @date;
-}
-
-#custom-arrow10 {
-	font-size: 32px;
-	color: @workspaces;
-	background: transparent;
-}
