@@ -1,7 +1,5 @@
 ### Import our colorscheme
 include $HOME/.cache/wal/colors-sway
-client.focused $color0 $background $foreground $color7 $background
-
 
 # Set our mod of choice
 set $mod Mod4
