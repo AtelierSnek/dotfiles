@@ -1,0 +1,3 @@
+# Ignore the colors that wal generates for backgrounds
+sway/.config/waybar/colors-waybar.css
+
