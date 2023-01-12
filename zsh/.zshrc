@@ -102,6 +102,10 @@ plugins=(
 if [ -x "$(command -v yarn)" ];then
   export PATH="$PATH:$HOME/.yarn/bin"
 fi
+
+#Export local .bin
+export PATH="$PATH:$HOME/.local/bin"
+
 # Position you-should-use messages after command execution
 export YSU_MESSAGE_POSITION="after"
 
