@@ -149,6 +149,7 @@ hi EasyMotionTarget2First ctermbg=none ctermfg=9 cterm=bold
 hi EasyMotionTarget2Second ctermbg=none ctermfg=1
 hi EasyMotionIncSearch ctermbg=none ctermfg=10 cterm=bold
 hi EasyMotionMoveHL ctermbg=none ctermfg=10 cterm=bold
+hi EasyMotionShade ctermbg=none ctermfg=7
 
 " Show hidden chars
 map <leader>l :set list!<cr>
