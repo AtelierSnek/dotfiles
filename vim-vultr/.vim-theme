@@ -10,6 +10,8 @@ let g:palenight_terminal_italics=1
 
 let g:airline_theme = 'palenight'
 
+set t_Co=256
 " Set the colorscheme
 colorscheme palenight
+
 

@@ -22,7 +22,6 @@ Plugin 'vim-airline/vim-airline-themes'
 " original repos on github
 Plugin 'Valloric/YouCompleteMe'
 Plugin 'scrooloose/syntastic'
-Plugin 'majutsushi/tagbar'
 Plugin 'klen/python-mode'
 
 Plugin 'vim-scripts/hlint'
@@ -76,7 +75,6 @@ syntax enable
 let g:rainbow_active = 1
 " let g:rainbow_guifgs = ['RoyalBlue3', 'DarkOrange3', 'DarkOrchid3', 'FireBrick']
 " let g:rainbow_ctermfgs = ['lightblue', 'lightgreen', 'yellow', 'red', 'magenta']
-
 " Generic Settings
 set modeline
 set smartindent
@@ -102,7 +100,8 @@ set mouse=a                                   " Allow mouse navigation and inter
 set splitbelow
 set splitright
 set modeline                                  " Allow modelines - they're useful
-
+set smartcase
+set ignorecase
 
 "YCM settings
 let g:ycm_global_ycm_extra_conf = "~/.vim/.ycm_extra_conf.py"
@@ -121,12 +120,31 @@ nmap <silent> <C-Down> :wincmd j<CR>
 nmap <silent> <C-Left> :wincmd h<CR>
 nmap <silent> <C-Right> :wincmd l<CR>
 
+" EasyMotion
+let g:EasyMotion_smartcase = 1 
+let g:EasyMotion_use_smartsign_us = 1
+" Replace the default vim search with EasyMotion
+map  / <Plug>(easymotion-sn)
+omap / <Plug>(easymotion-tn)
 " Remap space for use with easymotion
-map <Space> \\w
-map <leader><Space> \\b
-
+map <Space> <Plug>(easymotion-jumptoanywhere)
+map <leader><leader><Space> <Plug>(easymotion-overwin-line)
 map <leader>ss :setlocal spell!<cr>
 
+ let g:EasyMotion_re_anywhere = '\v' . 
+        \       '(<.|^$)' . '|' .
+        \       '(\l)\zs(\u)' . '|' .
+        \       '(_\zs.)' . '|' . 
+        \       '(#\zs.)'
+
+
+hi EasyMotionTarget ctermbg=none ctermfg=9 cterm=bold
+hi EasyMotionTarget2First ctermbg=none ctermfg=9 cterm=bold
+hi EasyMotionTarget2Second ctermbg=none ctermfg=1
+hi EasyMotionIncSearch ctermbg=none ctermfg=10 cterm=bold
+hi EasyMotionMoveHL ctermbg=none ctermfg=10 cterm=bold
+
+" Show hidden chars
 map <leader>l :set list!<cr>
 
 " Map enter to clear highlighted search hits
