@@ -1,8 +1,16 @@
-#TODO: Integrate with bg-stuff.sh
-set $background $HOME/Downloads/o3656954.jpg
+### Import our colorscheme
+include $HOME/.cache/wal/colors-sway
+client.focused $color0 $background $foreground $color7 $background
+
 
 # Set our mod of choice
 set $mod Mod4
+# Home row direction keys, unlike vim
+set $left j
+set $down k
+set $up i
+set $right l
+
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
@@ -14,19 +22,27 @@ font pango:Terminus 10
 
 #Display options
 output eDP-1 {
-  background $background fill
+  background $wallpaper fill
   resolution 2560x1440
   scale 1.50
   adaptive_sync on
 }
 
+output DP-1 {
+  background $wallpaper fill
+  resolution 2560x1440
+  adaptive_sync on
+  pos 0 0
+}
+input "5426:132:Razer_Razer_DeathAdder_V2" {
+  accel_profile flat
+  pointer_accel 0
+  
+}
+
 input type:touchpad {
   natural_scroll enabled
 }
-
-# NetworkManager is the most popular way to manage wireless networks on Linux,
-# and nm-applet is a desktop environment-independent system tray GUI for it.
-exec --no-startup-id nm-applet
 
 # Start mako when sway starts
 exec --no-startup-id mako
@@ -43,7 +59,14 @@ focus_follows_mouse no
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
-
+### Idle configuration
+#
+exec swayidle -w \
+         timeout 1800 'swaylock -f -i $wallpaper' \
+         timeout 600 'swaymsg "output * dpms off"' \
+	 resume 'swaymsg "output * dpms on"' \
+         before-sleep 'swaylock -f -i $wallpaper' \
+	 lock 'swaylock -f -i $wallpaper'
 # kill focused window
 bindsym $mod+Shift+q kill
 
@@ -51,29 +74,17 @@ bindsym $mod+Shift+q kill
 # bindsym $mod+d exec --no-startup-id "dmenu_run -nf '#BBBBBB' -nb '#222222' -sb '#005577' -sf '#EEEEEE' -fn 'monospace-10'"
 # A more modern dmenu replacement is rofi:
 #bindsym $mod+d exec "rofi -modi drun,run -show drun"
-bindsym $mod+d exec --no-startup-id rofi -show drun -run-shell-command '{terminal} -e zsh -ic "{cmd} && read"'
+bindsym $mod+d exec --no-startup-id rofi -show drun -run-shell-command '{terminal} -e zsh -ic "{cmd} && read"'  | xargs swaymsg --
 
 # There also is i3-dmenu-desktop which only displays applications shipping a
 # .desktop file. It is a wrapper around dmenu, so you need that installed.
 # bindcode $mod+40 exec --no-startup-id i3-dmenu-desktop
-
-# change focus
-bindsym $mod+j focus left
-bindsym $mod+k focus down
-bindsym $mod+l focus up
-bindsym $mod+semicolon focus right
 
 # alternatively, you can use the cursor keys:
 bindsym $mod+Left focus left
 bindsym $mod+Down focus down
 bindsym $mod+Up focus up
 bindsym $mod+Right focus right
-
-# move focused window
-bindsym $mod+Shift+j move left
-bindsym $mod+Shift+k move down
-bindsym $mod+Shift+l move up
-bindsym $mod+Shift+semicolon move right
 
 # alternatively, you can use the cursor keys:
 bindsym $mod+Shift+Left move left
@@ -89,18 +100,6 @@ bindsym $mod+v split v
 
 # enter fullscreen mode for the focused container
 bindsym $mod+f fullscreen toggle
-
-# change container layout (stacked, tabbed, toggle split)
-bindsym $mod+s layout stacking
-bindsym $mod+w layout tabbed
-bindsym $mod+e layout toggle split
-
-# toggle tiling / floating
-bindsym $mod+Shift+space floating toggle
-
-# change focus between tiling / floating windows
-bindsym $mod+space focus mode_toggle
-
 # focus the parent container
 bindsym $mod+a focus parent
 
@@ -146,6 +145,17 @@ bindsym $mod+Shift+9 move container to workspace number $ws9
 bindsym $mod+Shift+0 move container to workspace number $ws10
 bindsym $mod+Shift+Equal move container to scratchpad
 
+# change container layout (stacked, tabbed, toggle split)
+bindsym $mod+s layout stacking
+bindsym $mod+w layout tabbed
+bindsym $mod+e layout toggle split
+
+# toggle tiling / floating
+bindsym $mod+Shift+space floating toggle
+
+# change focus between tiling / floating windows
+bindsym $mod+space focus mode_toggle
+
 # reload the configuration file
 bindsym $mod+Shift+c reload
 # restart sway inplace (preserves your layout/session, can be used to upgrade i3)
@@ -162,15 +172,6 @@ bindsym $mod+Shift+Escape exec "swaynag -t warning -m 'Nap times?!' -z 'Yay!' 's
 mode "resize" {
         # These bindings trigger as soon as you enter the resize mode
 
-        # Pressing left will shrink the window’s width.
-        # Pressing right will grow the window’s width.
-        # Pressing up will shrink the window’s height.
-        # Pressing down will grow the window’s height.
-        bindsym j resize shrink width 10 px or 10 ppt
-        bindsym k resize grow height 10 px or 10 ppt
-        bindsym l resize shrink height 10 px or 10 ppt
-        bindsym semicolon resize grow width 10 px or 10 ppt
-
         # same bindings, but for the arrow keys
         bindsym Left resize shrink width 10 px or 10 ppt
         bindsym Down resize grow height 10 px or 10 ppt
@@ -184,6 +185,9 @@ mode "resize" {
 }
 
 bindsym $mod+r mode "resize"
+
+# Sticky toggle
+bindsym $mod+Alt+S sticky toggle
 
 # Keyboard Brightness
 bindcode 238 exec asusctl -n
@@ -224,12 +228,11 @@ for_window [floating] border normal
 #Don't automatically focus on popped windows
 no_focus [window_role="pop-up"]
 
-#Screenshotting
-bindsym Shift+Alt+1 exec "grim -t png $HOME/Pictures/ss-$(date +%Y-%m-%d_%H-%M-%S).png"
-bindsym Shift+Alt+2 exec "slurp -d | grim -t png -g - $HOME/Pictures/ss-$(date +%Y-%m-%d_%H-%M-%S).png"
-bindsym Shift+Alt+3 exec "grim -t png - | wl-copy"
-bindsym Shift+Alt+4 exec "slurp -d | grim -t png -g - - | wl-copy"
-
+# Screenshot stuff
+bindsym Shift+Alt+1 exec grim -t png $HOME/Pictures/ss-$(date +%Y-%m-%d_%H-%M-%S).png
+bindsym Shift+Alt+2 exec grim -t png -g "$(slurp) $HOME/Pictures/ss-$(date +%Y-%m-%d_%H-%M-%S).png"
+bindsym Shift+Alt+3 exec grim -t png - | wl-copy
+bindsym Shift+Alt+4 exec grim -t png -g "$(slurp)" - | wl-copy
 # Aesthetic stuff
 
 gaps inner 3
@@ -246,3 +249,5 @@ bar {
   swaybar_command waybar
   workspace_buttons yes
 }
+
+include /etc/sway/config.d/*
