@@ -1,8 +1,12 @@
 ### Import our colorscheme
 include $HOME/.cache/wal/colors-sway
 
+client.focused $color3 $color0 $foreground
+client.urgent $color3 $color3 $foreground
+
 # Set our mod of choice
 set $mod Mod4
+
 # Home row direction keys, unlike vim
 set $left j
 set $down k
@@ -226,12 +230,18 @@ for_window [floating] border normal
 #Don't automatically focus on popped windows
 no_focus [window_role="pop-up"]
 
-# Screenshot stuff
+
+# ==== Window Urgency ====
+
+# Allow switching to the calling program when clicking on mako notifs
+focus_on_window_activation focus
+
+# ==== Screenshot stuff ====
 bindsym Shift+Alt+1 exec grim -t png $HOME/Pictures/ss-$(date +%Y-%m-%d_%H-%M-%S).png
 bindsym Shift+Alt+2 exec grim -t png -g "$(slurp) $HOME/Pictures/ss-$(date +%Y-%m-%d_%H-%M-%S).png"
 bindsym Shift+Alt+3 exec grim -t png - | wl-copy
 bindsym Shift+Alt+4 exec grim -t png -g "$(slurp)" - | wl-copy
-# Aesthetic stuff
+# ==== Aesthetic stuff ====
 
 gaps inner 3
 gaps outer 3
@@ -240,7 +250,6 @@ corner_radius 12
 
 default_border pixel 1
 
-# smart_gaps on
 hide_edge_borders both
 
 bar {
