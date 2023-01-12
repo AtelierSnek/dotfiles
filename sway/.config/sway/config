@@ -154,9 +154,9 @@ bindsym $mod+Shift+r restart
 bindsym $mod+Shift+e exec "swaynag -t warning -m 'Do you really want to exit sway?' -B 'Yes, exit sway' 'swaymsg exit'"
 
 # Hibernate
-bindsym $mod+Shift+z exec "swaynag -t warning -m 'Bed times?!' -b 'ZzZz...' 'systemctl hibernate'"
+bindsym $mod+Shift+z exec "swaynag -t warning -m 'Bed times?!' -z 'ZzZz...' 'systemctl hibernate'"
 # Suspend
-bindsym $mod+Shift+Escape exec "swaynag -t warning -m 'Nap times?!' -b 'Yay!' 'systemctl suspend'"
+bindsym $mod+Shift+Escape exec "swaynag -t warning -m 'Nap times?!' -z 'Yay!' 'systemctl suspend'"
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
