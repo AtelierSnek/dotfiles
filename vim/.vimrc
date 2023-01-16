@@ -120,7 +120,15 @@ nmap <silent> <C-Down> :wincmd j<CR>
 nmap <silent> <C-Left> :wincmd h<CR>
 nmap <silent> <C-Right> :wincmd l<CR>
 
-" EasyMotion
+" ==== Spellcheck Settings ====
+map <leader>ss :setlocal spell!<cr>
+
+hi SpellBad ctermbg=11 ctermfg=0 cterm=bold
+hi SpellCap ctermbg=4 ctermfg=0 cterm=bold
+hi SpellRare ctermfg=2 ctermfg=0 cterm=italic
+hi SpellLocal ctermbg=2 ctermfg=0 cterm=italic
+
+" ==== EasyMotion ====
 let g:EasyMotion_smartcase = 1 
 let g:EasyMotion_use_smartsign_us = 1
 " Replace the default vim search with EasyMotion
@@ -129,14 +137,12 @@ omap / <Plug>(easymotion-tn)
 " Remap space for use with easymotion
 map <Space> <Plug>(easymotion-jumptoanywhere)
 map <leader><leader><Space> <Plug>(easymotion-overwin-line)
-map <leader>ss :setlocal spell!<cr>
 
- let g:EasyMotion_re_anywhere = '\v' . 
+let g:EasyMotion_re_anywhere = '\v' . 
         \       '(<.|^$)' . '|' .
         \       '(\l)\zs(\u)' . '|' .
         \       '(_\zs.)' . '|' . 
         \       '(#\zs.)'
-
 
 hi EasyMotionTarget ctermbg=none ctermfg=9 cterm=bold
 hi EasyMotionTarget2First ctermbg=none ctermfg=9 cterm=bold
