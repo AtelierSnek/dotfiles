@@ -95,6 +95,7 @@ set foldlevel=1
 set hlsearch                                  " Highlight all search hits
 set nospell                                   " Disable spell checking
 set colorcolumn=121                           " Highlight column 121 for line length indicator
+:hi ColorColumn ctermbg=8
 set mouse=a                                   " Allow mouse navigation and interaction
 " Open new split panes to right and bottom, which feels more natural
 set splitbelow
