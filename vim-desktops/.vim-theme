@@ -1,0 +1,13 @@
+" Force 16 color-mode by blinding vim to the xterm codes
+set noxtermcodes
+" For dark version.
+set background=dark
+
+set t_Co=16
+
+let g:airline_theme='term'
+
+hi Error NONE
+hi ErrorMsg NONE
+hi Error cterm=underdouble
+hi ErrorMsg cterm=underdouble

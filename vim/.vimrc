@@ -60,13 +60,12 @@ filetype plugin indent on    " required
 " Ensure that this exists, as vim won't create it for you
 set directory^=$HOME/.vim/swap//
 
-filetype plugin indent on
-
-" Airline theme
+" ==== Airline Settings ====
 let g:airline_theme='deus'
-
-" Populate powerline font symbols
 let g:airline_powerline_fonts = 1
+let g:airline_skip_empty_sections =1
+let g:arline#parts#ffenc#skip_expected_string='utf-8[unix]' "No need to display the file encoding if it's what's expected
+
 
 " Enable syntax highlighting
 syntax enable
@@ -75,7 +74,7 @@ syntax enable
 let g:rainbow_active = 1
 " let g:rainbow_guifgs = ['RoyalBlue3', 'DarkOrange3', 'DarkOrchid3', 'FireBrick']
 " let g:rainbow_ctermfgs = ['lightblue', 'lightgreen', 'yellow', 'red', 'magenta']
-" Generic Settings
+" ==== Generic Settings ====
 set modeline
 set smartindent
 set tabstop=2                                 " Tab key results in 2 spaces
@@ -94,9 +93,6 @@ set foldopen=block,hor,percent,quickfix,tag
 set foldlevel=1
 set hlsearch                                  " Highlight all search hits
 set nospell                                   " Disable spell checking
-set colorcolumn=121                           " Highlight column 121 for line length indicator
-:hi ColorColumn ctermbg=8
-set mouse=a                                   " Allow mouse navigation and interaction
 " Open new split panes to right and bottom, which feels more natural
 set splitbelow
 set splitright
@@ -104,7 +100,57 @@ set modeline                                  " Allow modelines - they're useful
 set smartcase
 set ignorecase
 
-"YCM settings
+" ==== Terminal settings ====
+" Mouse settings
+set mouse=a                                   " Allow mouse navigation and interaction
+set ttymouse=sgr
+set balloonevalterm
+" Styled and colored underline support
+let &t_AU = "\e[58:5:%dm"
+let &t_8u = "\e[58:2:%lu:%lu:%lum"
+let &t_Us = "\e[4:2m"
+let &t_Cs = "\e[4:3m"
+let &t_ds = "\e[4:4m"
+let &t_Ds = "\e[4:5m"
+let &t_Ce = "\e[4:0m"
+" Strikethrough
+let &t_Ts = "\e[9m"
+let &t_Te = "\e[29m"
+" Truecolor support
+let &t_8f = "\e[38:2:%lu:%lu:%lum"
+let &t_8b = "\e[48:2:%lu:%lu:%lum"
+let &t_RF = "\e]10;?\e\\"
+let &t_RB = "\e]11;?\e\\"
+" Bracketed paste
+let &t_BE = "\e[?2004h"
+let &t_BD = "\e[?2004l"
+let &t_PS = "\e[200~"
+let &t_PE = "\e[201~"
+" Cursor control
+let &t_RC = "\e[?12$p"
+let &t_SH = "\e[%d q"
+let &t_RS = "\eP$q q\e\\"
+let &t_SI = "\e[5 q"
+let &t_SR = "\e[3 q"
+let &t_EI = "\e[1 q"
+let &t_VS = "\e[?12l"
+" Focus tracking
+let &t_fe = "\e[?1004h"
+let &t_fd = "\e[?1004l"
+execute "set <FocusGained>=\<Esc>[I"
+execute "set <FocusLost>=\<Esc>[O"
+" Window title
+let &t_ST = "\e[22;2t"
+let &t_RT = "\e[23;2t"
+
+" vim hardcodes background color erase even if the terminfo file does
+" not contain bce. This causes incorrect background rendering when
+" using a color theme with a background color in terminals such as
+" kitty that do not support background color erase.
+let &t_ut=''
+
+
+" ==== YCM settings ====
 let g:ycm_global_ycm_extra_conf = "~/.vim/.ycm_extra_conf.py"
 let g:ycm_autoclose_preview_window_after_completion = 1
 let g:ycm_autoclose_preview_window_after_completion = 1
@@ -127,13 +173,13 @@ nmap <silent> <C-Right> :wincmd l<CR>
 " ==== Spellcheck Settings ====
 map <leader>ss :setlocal spell!<cr>
 
-hi SpellBad ctermbg=11 ctermfg=0 cterm=bold
-hi SpellCap ctermbg=4 ctermfg=0 cterm=bold
-hi SpellRare ctermfg=2 ctermfg=0 cterm=italic
-hi SpellLocal ctermbg=2 ctermfg=0 cterm=italic
+hi SpellBad ctermbg=none ctermfg=none cterm=undercurl
+hi SpellCap ctermbg=none ctermfg=none cterm=undercurl
+hi SpellRare ctermfg=none ctermfg=none cterm=underdotted
+hi SpellLocal ctermbg=none ctermfg=none cterm=underdashed
 
 " ==== EasyMotion ====
-let g:EasyMotion_smartcase = 1 
+let g:EasyMotion_smartcase = 1
 let g:EasyMotion_use_smartsign_us = 1
 " Replace the default vim search with EasyMotion
 map  / <Plug>(easymotion-sn)
@@ -142,18 +188,19 @@ omap / <Plug>(easymotion-tn)
 map <Space> <Plug>(easymotion-jumptoanywhere)
 map <leader><leader><Space> <Plug>(easymotion-overwin-line)
 
-let g:EasyMotion_re_anywhere = '\v' . 
+let g:EasyMotion_re_anywhere = '\v' .
         \       '(<.|^$)' . '|' .
         \       '(\l)\zs(\u)' . '|' .
-        \       '(_\zs.)' . '|' . 
+        \       '(_\zs.)' . '|' .
         \       '(#\zs.)'
 
 hi EasyMotionTarget ctermbg=none ctermfg=9 cterm=bold
 hi EasyMotionTarget2First ctermbg=none ctermfg=9 cterm=bold
-hi EasyMotionTarget2Second ctermbg=none ctermfg=1
+hi EasyMotionTarget2Second ctermbg=none ctermfg=1 cterm=bold
 hi EasyMotionIncSearch ctermbg=none ctermfg=10 cterm=bold
 hi EasyMotionMoveHL ctermbg=none ctermfg=10 cterm=bold
 hi EasyMotionShade ctermbg=none ctermfg=7
+hi Search ctermbg=none ctermfg=none cterm=underline
 
 " Show hidden chars
 map <leader>l :set list!<cr>
@@ -182,8 +229,8 @@ hi Folded ctermfg=4 ctermbg=0
 
 " Use whitespace-alignment allowing algo for airline
 let g:airline#extensions#whitespace#mixed_indent_algo = 2
-let g:airline#extensions#whitespace#skip_indent_check_ft =                                                             
-   \  {'markdown': ['mixed-indent-file']}    
+let g:airline#extensions#whitespace#skip_indent_check_ft =
+   \  {'markdown': ['mixed-indent-file']}
 " Filetype dependant tabs because tabstops are better
 autocmd FileType txt setlocal shiftwidth=2 tabstop=2 spell!
 autocmd FileType md setlocal shiftwidth=2 tabstop=2 spell!
@@ -194,6 +241,3 @@ let g:markdown_recommended_style = 0
 " Source in our theme if we're on a non-transparent terminal, or somewhere we
 " care about distinguishing things
 call SourceIfExists("~/.vim-theme")
-
-" Fix broken backgrounds on kitty
-let &t_ut=''
