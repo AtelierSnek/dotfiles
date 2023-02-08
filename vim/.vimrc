@@ -156,10 +156,16 @@ let g:ycm_autoclose_preview_window_after_completion = 1
 let g:ycm_autoclose_preview_window_after_completion = 1
 
 " ====  Syntastic Settings ====
+set statusline+=%#warningmsg# " Add the current warning to the statusline
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+
 let g:syntastic_enable_balloons = 1
 let g:syntastic_aggregate_errors = 1 " Aggregate errors together
-let g:syntatic_python_checkers = ['mypy','pydocstyle']
-
+let g:syntastic_python_checkers = ['mypy','pydocstyle']
 
 " Map f8 for Tagbar
 nmap <F8> :TagbarToggle<CR>
