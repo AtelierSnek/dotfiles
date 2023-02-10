@@ -114,6 +114,9 @@ export YSU_MESSAGE_POSITION="after"
 export ZSH_AUTOSUGGEST_COMPLETION_IGNORE="(git *)|?(#c50,)"
 export ZSH_AUTOSUGGEST_HISTORY_IGNORE="(gcmsg|gbd|ga|gd *)|(git *)|?(#c50,)|exit*"
 
+# Have an editor for SVN commits
+export SVN_EDITOR=vim
+
 source $ZSH/oh-my-zsh.sh
 
 # User configuration
