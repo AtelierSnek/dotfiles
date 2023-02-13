@@ -22,7 +22,6 @@ Plugin 'vim-airline/vim-airline-themes'
 Plugin 'Valloric/YouCompleteMe'
 " Plugin 'scrooloose/syntastic'
 Plugin 'w0rp/ale' " TODO: Figure out how to integrate this with YCM
-Plugin 'klen/python-mode'
 
 Plugin 'vim-scripts/hlint'
 
@@ -69,9 +68,6 @@ let g:arline#parts#ffenc#skip_expected_string='utf-8[unix]' "No need to display 
 
 " Enable syntax highlighting
 syntax enable
-
-" Turn off pymode
-let g:pymode_syntax = 0
 
 " Rainbow Parens on
 let g:rainbow_active = 1
