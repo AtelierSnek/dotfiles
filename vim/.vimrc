@@ -70,6 +70,9 @@ let g:arline#parts#ffenc#skip_expected_string='utf-8[unix]' "No need to display 
 " Enable syntax highlighting
 syntax enable
 
+" Turn off pymode
+let g:pymode_syntax = 0
+
 " Rainbow Parens on
 let g:rainbow_active = 1
 " let g:rainbow_guifgs = ['RoyalBlue3', 'DarkOrange3', 'DarkOrchid3', 'FireBrick']
@@ -161,7 +164,7 @@ let g:ycm_autoclose_preview_window_after_completion = 1
 let g:ale_lint_on_enter = 1 " Lint when opening a buffer
 let g:ale_lint_on_save = 1
 let g:ale_lint_insert_leave = 1
-let g:ale_lint_on_text_changed = 0 " Don't lint while we're typing
+let g:ale_lint_on_text_changed = 1 " Don't lint while we're typing
 
 " Reporting Options
 let g:ale_set_balloons = 1
