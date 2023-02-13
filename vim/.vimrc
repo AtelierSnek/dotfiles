@@ -162,6 +162,16 @@ let g:ale_lint_on_save = 1
 let g:ale_lint_insert_leave = 1
 let g:ale_lint_on_text_changed = 1 " Don't lint while we're typing
 
+" Global Fixing Options
+let g:ale_fix_on_save = 1
+
+let g:ale_fixers = {
+      \ 'python': ['black','trim_whitespace'],
+      \}
+
+nmap <F8> <Plug>(ale_fix)
+
+
 " Reporting Options
 let g:ale_set_balloons = 1
 let g:ale_set_signs = 1
@@ -170,12 +180,6 @@ let g:ale_set_echo_cursor = 1
 let g:ale_linters = {
       \ 'python': ['mypy','pylint'],
       \}
-
-let g:ale_fixers = {
-      \ 'python': ['black','trim_whitespace'],
-      \}
-
-nmap <F8> <Plug>(ale_fix)
 
 " Remap ctrl+arrows to move between window splits
 nmap <silent> <C-Up> :wincmd k<CR>
@@ -238,6 +242,7 @@ set conceallevel=2
 hi Conceal ctermfg=4 ctermbg=0
 
 " Fold settings
+set foldlevel=2
 hi Folded ctermfg=4 ctermbg=0
 
 " Use whitespace-alignment allowing algo for airline
