@@ -19,9 +19,9 @@ Plugin 'VundleVim/Vundle.vim'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 
-" original repos on github
 Plugin 'Valloric/YouCompleteMe'
-Plugin 'scrooloose/syntastic'
+" Plugin 'scrooloose/syntastic'
+Plugin 'w0rp/ale' " TODO: Figure out how to integrate this with YCM
 Plugin 'klen/python-mode'
 
 Plugin 'vim-scripts/hlint'
@@ -155,20 +155,28 @@ let g:ycm_global_ycm_extra_conf = "~/.vim/.ycm_extra_conf.py"
 let g:ycm_autoclose_preview_window_after_completion = 1
 let g:ycm_autoclose_preview_window_after_completion = 1
 
-" ====  Syntastic Settings ====
-set statusline+=%#warningmsg# " Add the current warning to the statusline
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
+" ====  ALE Settings ====
 
-let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 0
+" Global Linting Options
+let g:ale_lint_on_enter = 1 " Lint when opening a buffer
+let g:ale_lint_on_save = 1
+let g:ale_lint_insert_leave = 1
+let g:ale_lint_on_text_changed = 0 " Don't lint while we're typing
 
-let g:syntastic_enable_balloons = 1
-let g:syntastic_aggregate_errors = 1 " Aggregate errors together
-let g:syntastic_python_checkers = ['mypy','pydocstyle']
+" Reporting Options
+let g:ale_set_balloons = 1
+let g:ale_set_signs = 1
+let g:ale_set_echo_cursor = 1
 
-" Map f8 for Tagbar
-nmap <F8> :TagbarToggle<CR>
+let g:ale_linters = {
+      \ 'python': ['mypy','pylint'],
+      \}
+
+let g:ale_fixers = {
+      \ 'python': ['black','trim_whitespace'],
+      \}
+
+nmap <F8> <Plug>(ale_fix)
 
 " Remap ctrl+arrows to move between window splits
 nmap <silent> <C-Up> :wincmd k<CR>
