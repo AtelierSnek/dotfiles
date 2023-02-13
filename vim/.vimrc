@@ -89,7 +89,6 @@ set laststatus=2                              " Always show statusline
 set foldenable
 set foldmethod=syntax                         " Markers are used to specify folds
 set foldopen=block,hor,percent,quickfix,tag
-set foldlevel=1
 set hlsearch                                  " Highlight all search hits
 set nospell                                   " Disable spell checking
 " Open new split panes to right and bottom, which feels more natural
@@ -98,6 +97,7 @@ set splitright
 set modeline                                  " Allow modelines - they're useful
 set smartcase
 set ignorecase
+set balloondelay=100
 
 " ==== Terminal settings ====
 " Mouse settings
@@ -148,14 +148,8 @@ let &t_RT = "\e[23;2t"
 " kitty that do not support background color erase.
 let &t_ut=''
 
-
-" ==== YCM settings ====
-let g:ycm_global_ycm_extra_conf = "~/.vim/.ycm_extra_conf.py"
-let g:ycm_autoclose_preview_window_after_completion = 1
-let g:ycm_autoclose_preview_window_after_completion = 1
-
 " ====  ALE Settings ====
-
+" NOTE: A lot of these settings need to be set *before* ALE loads
 " Global Linting Options
 let g:ale_lint_on_enter = 1 " Lint when opening a buffer
 let g:ale_lint_on_save = 1
@@ -171,7 +165,6 @@ let g:ale_fixers = {
 
 nmap <F8> <Plug>(ale_fix)
 
-
 " Reporting Options
 let g:ale_set_balloons = 1
 let g:ale_set_signs = 1
@@ -181,6 +174,11 @@ let g:ale_linters = {
       \ 'python': ['mypy','pylint'],
       \}
 
+" ==== YCM settings ====
+let g:ycm_global_ycm_extra_conf = "~/.vim/.ycm_extra_conf.py"
+let g:ycm_autoclose_preview_window_after_completion = 1
+let g:ycm_autoclose_preview_window_after_completion = 1
+
 " Remap ctrl+arrows to move between window splits
 nmap <silent> <C-Up> :wincmd k<CR>
 nmap <silent> <C-Down> :wincmd j<CR>
@@ -188,7 +186,11 @@ nmap <silent> <C-Left> :wincmd h<CR>
 nmap <silent> <C-Right> :wincmd l<CR>
 
 " ==== Spellcheck Settings ====
+set spelloptions=camel
 map <leader>ss :setlocal spell!<cr>
+
+" armor
+
 
 hi SpellBad ctermbg=none ctermfg=none cterm=undercurl
 hi SpellCap ctermbg=none ctermfg=none cterm=undercurl
@@ -250,8 +252,14 @@ let g:airline#extensions#whitespace#mixed_indent_algo = 2
 let g:airline#extensions#whitespace#skip_indent_check_ft =
    \  {'markdown': ['mixed-indent-file']}
 " Filetype dependant tabs because tabstops are better
-autocmd FileType txt setlocal shiftwidth=2 tabstop=2 spell!
-autocmd FileType md setlocal shiftwidth=2 tabstop=2 spell!
+autocmd FileType text {
+setlocal shiftwidth=2 tabstop=2 spl=en_au
+set spell
+}
+autocmd FileType markdown {
+  setlocal shiftwidth=2 tabstop=2 spl=en_au
+  set spell
+}
 
 " Disable "recommended style" as it uses 4 space tabs
 let g:markdown_recommended_style = 0
