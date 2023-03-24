@@ -36,6 +36,7 @@ output DP-1 {
   adaptive_sync on
   pos 0 0
 }
+
 input "5426:132:Razer_Razer_DeathAdder_V2" {
   accel_profile flat
   pointer_accel -0.7
@@ -64,18 +65,18 @@ floating_modifier $mod
 ### Idle configuration
 #
 exec swayidle -w \
-         timeout 1800 'swaylock -f -i $wallpaper' \
-         timeout 600 'swaymsg "output * dpms off"' \
+   timeout 1800 'swaylock -f -i $wallpaper' \
+   timeout 600 'swaymsg "output * dpms off"' \
    resume 'swaymsg "output * dpms on"' \
-         before-sleep 'swaylock -f -i $wallpaper' \
+   before-sleep 'swaylock -f -i $wallpaper' \
    lock 'swaylock -f -i $wallpaper'
+
 # kill focused window
 bindsym $mod+Shift+q kill
 
 # start dmenu (a program launcher)
 # bindsym $mod+d exec --no-startup-id "dmenu_run -nf '#BBBBBB' -nb '#222222' -sb '#005577' -sf '#EEEEEE' -fn 'monospace-10'"
 # A more modern dmenu replacement is rofi:
-#bindsym $mod+d exec "rofi -modi drun,run -show drun"
 bindsym $mod+d exec --no-startup-id rofi -show drun -run-shell-command '{terminal} -e zsh -ic "{cmd} && read"'  | xargs swaymsg --
 
 # There also is i3-dmenu-desktop which only displays applications shipping a
@@ -212,7 +213,9 @@ bindsym $mod+Return exec kitty
 # Assign Applications to default locations
 assign [class="Vivaldi"] $ws2
 assign [class="discord"] $ws3
+assign [class="Signal"] $ws4
 assign [class="Steam"] $ws5
+assign [title="Steam"] $ws5
 assign [class="Plex"] $ws6
 
 # Certain Windows should float by default
@@ -247,6 +250,8 @@ gaps inner 3
 gaps outer 3
 
 corner_radius 12
+
+shadows on
 
 default_border pixel 1
 
