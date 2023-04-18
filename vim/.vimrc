@@ -21,6 +21,7 @@ Plugin 'vim-airline/vim-airline-themes'
 
 Plugin 'Valloric/YouCompleteMe'
 " Plugin 'scrooloose/syntastic'
+Plugin 'pearofducks/ansible-vim'
 Plugin 'w0rp/ale' " TODO: Figure out how to integrate this with YCM
 
 Plugin 'vim-scripts/hlint'
@@ -161,6 +162,7 @@ let g:ale_fix_on_save = 1
 
 let g:ale_fixers = {
       \ 'python': ['black','trim_whitespace'],
+      \ 'ansible': ['trim_whitespace'],
       \}
 
 nmap <F8> <Plug>(ale_fix)
@@ -172,6 +174,7 @@ let g:ale_set_echo_cursor = 1
 
 let g:ale_linters = {
       \ 'python': ['mypy','pylint'],
+      \ 'ansible': ['ansible-language-server'],
       \}
 
 " ==== YCM settings ====
@@ -260,6 +263,10 @@ autocmd FileType markdown {
   setlocal shiftwidth=2 tabstop=2 spl=en_au
   set spell
 }
+
+" Correctly detect Ansible files
+au BufRead,BufNewFile */playbooks/*.yml set filetype=yaml.ansible
+au BufRead,BufNewFile *.yml set filetype=yaml.ansible
 
 " Disable "recommended style" as it uses 4 space tabs
 let g:markdown_recommended_style = 0
