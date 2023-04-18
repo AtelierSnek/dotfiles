@@ -174,7 +174,7 @@ let g:ale_set_echo_cursor = 1
 
 let g:ale_linters = {
       \ 'python': ['mypy','pylint'],
-      \ 'ansible': ['ansible-language-server'],
+      \ 'ansible': ['ansible-language-server','ansible-lint'],
       \}
 
 " ==== YCM settings ====
