@@ -44,7 +44,7 @@
 @define-color light @foreground;
 @define-color dark @background;
 @define-color warning @color4;
-@define-color critical @color13;
+@define-color critical @color7;
 @define-color mode @color2;
 @define-color workspaces @color4;
 @define-color workspacesfocused @color13;
