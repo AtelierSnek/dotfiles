@@ -264,6 +264,10 @@ autocmd FileType markdown {
   set spell
 }
 
+autocmd FileType gitcommit {
+  set spell  
+}
+
 " Correctly detect Ansible files
 au BufRead,BufNewFile */playbooks/*.yml set filetype=yaml.ansible
 au BufRead,BufNewFile *.yml set filetype=yaml.ansible
