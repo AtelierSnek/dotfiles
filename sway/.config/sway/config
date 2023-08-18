@@ -37,6 +37,14 @@ output DP-1 {
   pos 0 0
 }
 
+output HDMI-A-1 {
+  background $wallpaper fill
+  resolution 2560x1440
+  adaptive_sync on
+  pos 1440 0
+  scale 2.0
+}
+
 input "5426:132:Razer_Razer_DeathAdder_V2" {
   accel_profile flat
   pointer_accel -0.7
