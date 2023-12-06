@@ -267,7 +267,7 @@ layer_effects notifications blur enable; shadows enable; corner_radius 4
 layer_effects waybar corner_radius 8
 
 
-default_dim_inactive 0.2
+default_dim_inactive 0.05
 
 default_border pixel 1
 
