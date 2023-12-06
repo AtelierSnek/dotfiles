@@ -12,7 +12,7 @@ ignore-timeout=1
 
 border-color={color13}
 background-color={background}89
-text=color={foreground}
+text-color={foreground}
 
 [urgency=low]
 border-color={color12}
@@ -21,7 +21,7 @@ border-color={color12}
 border-color={color13}
 
 [urgency=high]
-border=color={color14}
+border-color={color14}
 default-timeout=0
 
 [category=mpd]
