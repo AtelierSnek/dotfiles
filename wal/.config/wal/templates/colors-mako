@@ -14,13 +14,26 @@ border-color={color13}
 background-color={background}89
 text-color={foreground}
 
+[app-name=Signal]
+default-timeout=0
+history=1
+group-by=summary
+
+[app-name=Discord]
+history=1
+group-by=summary
+
+[app-name=Cider]
+default-timeout=5000
+
+
 [urgency=low]
 border-color={color12}
 
 [urgency=normal]
 border-color={color13}
 
-[urgency=high]
+[urgency=critical]
 border-color={color14}
 default-timeout=0
 
