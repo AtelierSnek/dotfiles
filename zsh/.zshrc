@@ -145,11 +145,15 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
+alias wget="wget --continue --progress=dot:mega --tries=0"
+
+
 # Check if we're on arch, and load customisations if we are.
 # TODO: Fix this up for fedora once bg-stuff is merged
 if [ -z $DISPLAY ] && [ "$(tty)" = "/dev/tty1" ];then
   . ~/bgStuff.sh
   exec dbus-run-session sway
+  makoctl reload
 fi
 
  
