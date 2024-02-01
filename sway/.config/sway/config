@@ -225,6 +225,7 @@ assign [class="Signal"] $ws4
 assign [class="Steam"] $ws5
 assign [title="Steam"] $ws5
 assign [class="Plex"] $ws6
+assign [class="Cider"] $ws10
 
 # Certain Windows should float by default
 for_window [title="Activation"] floating enable
