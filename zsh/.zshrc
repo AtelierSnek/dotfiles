@@ -87,7 +87,7 @@ fi
 plugins=(
   colorize
   git
-  colored-man-pages 
+  colored-man-pages
   stack
   virtualenv
   rust
@@ -156,7 +156,7 @@ if [ -z $DISPLAY ] && [ "$(tty)" = "/dev/tty1" ];then
   makoctl reload
 fi
 
- 
+
 
 if [ $ID = "arch" ]; then
   plugins+=(archlinux)

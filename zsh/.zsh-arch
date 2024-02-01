@@ -1,5 +1,5 @@
 #Export Tray Type
 export XDG_CURRENT_DESKTOP=Unity
-
+export XDG_RUNTIME_DIR=/run/user/$(id -u)
 # Prevent IDEA/Android Studio from dying due to reparenting issues in Wayland
 export _JAVA_AWT_WM_NONREPARENTING=1
