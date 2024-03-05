@@ -101,6 +101,8 @@ set ignorecase
 set balloondelay=100
 
 " ==== Terminal settings ====
+" Set Terminal Type
+set term=kitty
 " Mouse settings
 set mouse=a                                   " Allow mouse navigation and interaction
 set ttymouse=sgr
