@@ -1,5 +1,15 @@
-#Export Tray Type
+# Export Tray Type
 export XDG_CURRENT_DESKTOP=Unity
 export XDG_RUNTIME_DIR=/run/user/$(id -u)
 # Prevent IDEA/Android Studio from dying due to reparenting issues in Wayland
 export _JAVA_AWT_WM_NONREPARENTING=1
+
+# Export which LLVM to build against for mesa-git
+# Mesa-git uses a custom environment variable MESA_WHICH_LLVM for flexibility.
+# It has 4 values.
+# 1 : aur llvm-minimal-git
+# 2 : aur llvm-git
+# 3: llvm-git from LordHeavy' unofficial repo
+# 4: llvm from extra repo
+
+export  MESA_WHICH_LLVM=1
