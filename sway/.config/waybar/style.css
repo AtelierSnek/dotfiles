@@ -12,11 +12,11 @@
 
 @keyframes blink-warning {
 	70% {
-		color: @light;
+		color: @color4;
 	}
 
 	to {
-		color: @light;
+		color: @color4;
 		background-color: @warning;
 	}
 }
@@ -43,7 +43,7 @@
 
 @define-color light @foreground;
 @define-color dark @background;
-@define-color warning @color4;
+@define-color warning @color8;
 @define-color critical @color7;
 @define-color mode @color2;
 @define-color workspaces @color4;
