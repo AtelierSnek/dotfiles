@@ -1,0 +1,19 @@
+# Specific IO File for our Zen Dekstop
+
+# ==== Inputs ====
+
+# ==== Outputs ====
+
+output eDP-1 {
+  resolution 2560x1440
+  scale 1.50
+  adaptive_sync on
+  pos 0 0
+}
+
+output HDMI-A-1 {
+  resolution 2560x1440
+  adaptive_sync on
+  pos 1440 0
+  scale 2.0
+}
