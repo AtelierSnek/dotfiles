@@ -1,9 +1,9 @@
 max-history=100
-font=Fira Code 10
+font=Fira Code 12
 sort=-time
 layer=overlay
-width=384
-height=180
+width=512
+height=240
 border-size=2
 border-radius=8
 max-icon-size=64
@@ -11,7 +11,7 @@ default-timeout=15000
 ignore-timeout=1
 
 border-color={color13}
-background-color={background}89
+background-color={background}72
 text-color={foreground}
 
 [app-name=Signal]
@@ -24,17 +24,17 @@ history=1
 group-by=summary
 
 [app-name=Cider]
-default-timeout=5000
+default-timeout=7500
 
 
 [urgency=low]
-border-color={color12}
+border-color={color11}
 
 [urgency=normal]
-border-color={color13}
+border-color={color12}
 
 [urgency=critical]
-border-color={color14}
+border-color={color13}
 default-timeout=0
 
 [category=mpd]

@@ -255,7 +255,7 @@ corner_radius 12
 
 shadows on
 
-layer_effects notifications blur enable; corner_radius 12
+layer_effects notifications blur enable; corner_radius 12; blur_ignore_transparent enable
 layer_effects waybar corner_radius 8
 
 
