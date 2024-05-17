@@ -97,7 +97,6 @@ bindsym $mod+Down focus down
 bindsym $mod+Up focus up
 bindsym $mod+Right focus right
 
-# alternatively, you can use the cursor keys:
 bindsym $mod+Shift+Left move left
 bindsym $mod+Shift+Down move down
 bindsym $mod+Shift+Up move up
@@ -142,6 +141,12 @@ bindsym $mod+8 workspace number $ws8
 bindsym $mod+9 workspace number $ws9
 bindsym $mod+0 workspace number $ws10
 bindsym $mod+Equal scratchpad show
+
+# gesture controls for workspace switch (natural scrolling)
+bindgesture swipe:3:right workspace prev
+bindgesture swipe:3:left workspace next
+bindgesture swipe:4:up move container to scratchpad
+bindgesture swipe:4:down scratchpad show
 
 # move focused container to workspace
 bindsym $mod+Shift+1 move container to workspace number $ws1
