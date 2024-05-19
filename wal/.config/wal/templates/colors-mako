@@ -1,8 +1,8 @@
 max-history=100
-font=Fira Code 12
+font=Fira Code 11
 sort=-time
 layer=overlay
-width=512
+width=400
 height=240
 border-size=2
 border-radius=8
