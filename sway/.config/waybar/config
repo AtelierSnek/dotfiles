@@ -13,8 +13,8 @@
 
   "layer": "top",
   "height": 32,
-  "position": "bottom",
-  "margin": "0 8 4 8",
+  "position": "top",
+  "margin": "0 0 0 0",
   "modules-left": [
     "sway/mode",
     "sway/workspaces",
@@ -83,7 +83,7 @@
   "cpu": {
     "interval": 5,
     "tooltip": false,
-    "format": "龍 {usage}%", // Icon: microchip
+    "format": " {usage}%", // Icon: microchip
     "states": {
       "warning": 70,
       "critical": 90
@@ -92,14 +92,14 @@
 
   "disk": {
     "interval": 60,
-    "format": " {free} | {percentage_free}%",
+    "format": " {free} | {percentage_free}%",
     "path": "/home/",
     "tooltip": false
   },
 
   "disk#store": {
     "interval": 5,
-    "format": "  {free}|{percentage_free}% ",
+    "format": " {free}|{percentage_free}% ",
     "path": "/mnt/steamlib",
     "tooltip": false
   },
@@ -107,8 +107,8 @@
   "idle_inhibitor": {
     "format": "{icon}",
     "format-icons": {
-        "activated": "",
-        "deactivated": ""
+        "activated": "",
+        "deactivated": ""
     }
   },
 
@@ -120,7 +120,7 @@
 
   "memory": {
     "interval": 5,
-    "format": " {}%", // Icon: memory
+    "format": " {}%", // Icon: memory
     "states": {
       "warning": 70,
       "critical": 90
@@ -153,17 +153,7 @@
   "sway/workspaces": {
     "all-outputs": false,
     "disable-scroll": false,
-    "format": "{name}",
-    "format-icons": {
-      "1:www": "龜", // Icon: firefox-browser
-      "2:mail": "", // Icon: mail
-      "3:editor": "", // Icon: code
-      "4:terminals": "", // Icon: terminal
-      "5:portal": "", // Icon: terminal
-      "urgent": "",
-      "focused": "",
-      "default": ""
-    }
+    "format": "{icon}",
   },
 
   "pulseaudio": {
@@ -190,11 +180,11 @@
     //"format": "{icon} {temperatureC}°C",
     "format": "{icon} {temperatureC}°",
     "format-icons": [
-      " ", // Icon: temperature-empty
-      //"", // Icon: temperature-quarter
-      " ", // Icon: temperature-half
+      "", // Icon: temperature-empty
+      //"", // Icon: temperature-quarter
+      "", // Icon: temperature-half
       //"", // Icon: temperature-three-quarters
-      " "  // Icon: temperature-full
+      ""  // Icon: temperature-full
     ],
     "tooltip": false
   },

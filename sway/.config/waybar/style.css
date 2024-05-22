@@ -89,10 +89,6 @@
 
 /* The whole bar */
 #waybar {
-  border-style: solid;
-  border-width: 1px;
-  border-color: #fcfcfc;
-  border-radius: 12px;
   background: @background;
 	opacity: 0.90;
 	color: @light;
@@ -101,12 +97,14 @@
   font-weight: bold;
 }
 
+
+
+.modules-center {
+  font-weight: normal;
+}
 .modules-left,
 .modules-center,
 .modules-right {
-  border-width: 1px 0px;
-  border-style: solid;
-  border-color: #fcfcfc;
 }
 
 

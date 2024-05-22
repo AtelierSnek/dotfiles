@@ -41,10 +41,11 @@ input type:touchpad {
 include sway-io
 
 # Start mako when sway starts
-exec --no-startup-id mako
+exec_always --no-startup-id mako
+
+exec_always --no-startup-id workstyle &> /tmp/workstyle.log
 
 # Use pactl to adjust volume in PulseAudio.
-set $refresh_i3status killall -SIGUSR1 i3status
 bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +2%
 bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -2%
 bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle
@@ -209,13 +210,13 @@ bindsym $mod+Return exec kitty
 # ==== Class Assignments & Window Options ====
 # TODO: Add more of these
 # Assign Applications to default locations
-assign [class="Vivaldi"] $ws2
-assign [class="discord"] $ws3
-assign [class="Signal"] $ws4
-assign [class="Steam"] $ws5
-assign [title="Steam"] $ws5
-assign [class="Plex"] $ws6
-assign [class="Cider"] $ws10
+assign [class="Vivaldi"] number $ws2
+assign [class="discord"] number $ws3
+assign [class="Signal"] number $ws4
+assign [class="Steam"] number $ws5
+assign [title="Steam"] number $ws5
+assign [class="Plex"]  number $ws6
+assign [class="Cider"] number $ws10
 
 # Certain Windows should float by default
 for_window [title="Activation"] floating enable
