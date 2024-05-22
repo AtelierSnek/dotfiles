@@ -19,24 +19,24 @@
 "steam" = ""
 
 "google" = ""
-"private browsing" = ""
 "firefox" = ""
 "chrome" = ""
 "vivaldi" = ""
 
 "file manager" = ""
 "libreoffice calc" = ""
-"libreoffice writer" = ""
-"libreoffice" = ""
+"libreoffice writer" = "󰈙"
+"libreoffice" = "󰏆"
 
 "nvim" = ""
 "gthumb" = ""
 "menu" = ""
 
-"calculator" = ""
+"calculator" = ""
 "transmission" = ""
 "qbittorrent" = ""
 
+"feh" = ""
 "videostream" = ""
 "mpv" = ""
 "music" = ""

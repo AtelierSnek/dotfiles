@@ -212,6 +212,7 @@ bindsym $mod+Return exec kitty
 # Assign Applications to default locations
 assign [class="Vivaldi"] number $ws2
 assign [class="discord"] number $ws3
+assign [class="vesktop"] number $ws3
 assign [class="Signal"] number $ws4
 assign [class="Steam"] number $ws5
 assign [title="Steam"] number $ws5
