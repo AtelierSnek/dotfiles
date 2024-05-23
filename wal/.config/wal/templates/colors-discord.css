@@ -19,16 +19,18 @@
     --background-secondary-alt: {background};
     --background-tertiary-alt: {background};
 
+    /*
+    --button-primary-background: {};
+    --button-primary-background-hover: {};
+    --button-secondary-background: {};
+    --button-secondary-background-hover: {};
+    */
+
     --channeltextarea-background: {background};
 
     --profile-body-background-color: {background};
     --profile-role-pill-background-color: {color8};
     --profile-role-pill-corder-color: {color5};
-    /*
-    --profile-gradient-primary-color: {background};
-    --profile-gradient-secondary-color: {background};
-    --profile-body-background-color: {background};
-    */
 
     --__header-bar-background: {background} !important;
 
@@ -67,7 +69,7 @@
     --channels-default: {color6};
     --channel-icon: {color6};
 
-    /* *.color7 */
+    /* red/yellow/green */
     --text-normal: {color15};
     --text-link: {color6};
     --text-muted: {color7};
@@ -79,6 +81,13 @@
     --status-danger: {color11};
     --status-warning: {color12};
     --status-positive: {color13};
+
+    --button-danger-background: {color3};
+    --button-danger-background-hover: {color11};
+    --button-neutral-background: {color4};
+    --button-neutral-background-hover: {color12};
+    --button-positive-background: {color5};
+    --button-positive-background-hover: {color13};
 
     --interactive-normal: {color15};
     --interactive-hover: {color11};
