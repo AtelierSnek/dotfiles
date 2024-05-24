@@ -94,7 +94,13 @@
     --interactive-active: {color14};
 }}
 
+
 /* status indicators */
+
+rect[fill="#80848e"] {{
+    fill: {color8} !important;
+}}
+
 rect[fill="#f23f43"] {{
     fill: {color3} !important;
 }}
