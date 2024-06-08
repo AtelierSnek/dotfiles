@@ -100,7 +100,11 @@ bindsym $mod+f fullscreen toggle
 bindsym $mod+a focus parent
 
 # focus the child container
-#bindsym $mod+d focus child
+bindsym $mod+Shift+a focus child
+
+# Opacity Controls
+bindsym $mod+Ctrl+Equal opacity plus 0.05
+bindsym $mod+Ctrl+Minus opacity minus 0.05
 
 # Define names for default workspaces for which we configure key bindings later on.
 # We use variables to avoid repeating the names in multiple places.
