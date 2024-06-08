@@ -237,7 +237,12 @@ for_window [floating] border normal
 
 #Don't automatically focus on popped windows
 no_focus [window_role="pop-up"]
+no_focus [window_role="splash"]
 
+#Inhibit Idling if:
+for_window [class="Plex"] inhibit_idle visible
+#Sticky Discord Streams
+for_window [floating class="discord"] inhibit_idle visible
 
 # ==== Window Urgency ====
 
