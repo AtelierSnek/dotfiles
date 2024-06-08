@@ -6,18 +6,24 @@
  * @source https://github.com/ZephyrCodesStuff/pywal-vencord
 */
 
+:root {{
+    --bg-lightened: hsl(from rgb({background.rgb}) h s 12);
+}}
+
 * {{
     /* font-family: "JetBrains Mono"; */
     /* font-style: italic; */
 
     /* *.background */
-    --background-primary: {background};
-    --background-secondary: {background};
-    --background-tertiary: {background};
+    --background-primary: var(--bg-lightened);
+    --background-secondary: var(--bg-lightened);
+    --background-tertiary: var(--bg-lightened);
 
-    --background-primary-alt: {background};
-    --background-secondary-alt: {background};
-    --background-tertiary-alt: {background};
+    --background-primary-alt: var(--bg-lightened);
+    --background-secondary-alt: var(--bg-lightened);
+    --background-tertiary-alt: var(--bg-lightened);
+
+    --background-modifier-selected: {color8};
 
     /*
     --button-primary-background: TODO;
@@ -26,19 +32,19 @@
     --button-secondary-background-hover: TODO;
     */
 
-    --channeltextarea-background: {background};
+    --channeltextarea-background: var(--bg-lightened);
 
-    --profile-body-background-color: {background};
+    --profile-body-background-color: var(--bg-lightened);
     --profile-role-pill-background-color: {color8};
     --profile-role-pill-corder-color: {color5};
 
-    --__header-bar-background: {background} !important;
+    --__header-bar-background: var(--bg-lightened) !important;
 
-    --scrollbar-auto-track: {background};
-    --scrollbar-thin-track: {background};
+    --scrollbar-auto-track: var(--bg-lightened);
+    --scrollbar-thin-track: var(--bg-lightened);
 
     /* primary.* */
-    --primary-630: {background};
+    --primary-630: var(--bg-lightened);
 
     /* *.color2 */
     --scrollbar-auto-thumb: {color2};
@@ -56,10 +62,11 @@
     --yellow-300: {color4};
 
     /* *.color5 */
-    --header-primary: {color5};
+    --header-primary: {color13};
     --brand-experiment: {color5};
     --brand-experiment-360: {color5};
     --brand-experiment-500: {color5};
+    --brand-500: {color5};
     --profile-gradient-button-color: {color5};
 
     --green-360: {color5};
@@ -92,6 +99,7 @@
     --interactive-normal: {color15};
     --interactive-hover: {color11};
     --interactive-active: {color14};
+
 }}
 
 
