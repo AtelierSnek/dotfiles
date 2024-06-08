@@ -211,29 +211,34 @@ bindsym $mod+Return exec kitty
 # ==== Class Assignments & Window Options ====
 # TODO: Add more of these
 # Assign Applications to default locations
-assign [class="Vivaldi"] number $ws2
-assign [class="discord"] number $ws3
-assign [class="vesktop"] number $ws3
-assign [class="Signal"] number $ws4
-assign [class="Steam"] number $ws5
-assign [title="Steam"] number $ws5
-assign [class="Plex"]  number $ws6
-assign [class="Cider"] number $ws10
+assign {
+  [class="Vivaldi"] number $ws2
+  [class="discord"] number $ws3
+  [class="vesktop"] number $ws3
+  [class="Signal"] number $ws4
+  [class="Steam"] number $ws5
+  [title="Steam"] number $ws5
+  [class="Plex"]  number $ws6
+  [class="Cider"] number $ws10
+}
 
 # Certain Windows should float by default
-for_window [title="Activation"] floating enable
-
-for_window [class="Synthesizer V Studio Pro"] floating enable
-
-for_window [title="Steam - News"] floating enable
-for_window [title="Steam Settings"] floating enable
-for_window [title="Friends List"] floating enable
+for_window {
+  [title="Activation"] floating enable
+  [class="Synthesizer V Studio Pro"] floating enable
+  [title="Steam - News"] floating enable
+  [title="Steam Settings"] floating enable
+  [title="Friends List"] floating enable
+}
 
 # Sticky Windows
 for_window [instance="file_progress"] sticky enable
 
 # Floating Windows should have a title
-for_window [floating] border normal
+for_window {
+  [floating class="discord"] border none; opacity 0.75
+  [floating] border normal
+}
 
 #Don't automatically focus on popped windows
 no_focus [window_role="pop-up"]
