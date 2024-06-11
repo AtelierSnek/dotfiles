@@ -7,7 +7,8 @@
 */
 
 :root {{
-    --bg-lightened: hsl(from rgb({background.rgb}) h s 12);
+    --bg-lightened: hsl(from rgb({background.rgb}) h calc(s * 0.9) calc(l * 1.6));
+    --bg-bright: hsl(from rgb({color8.rgb}) h calc(s * 0.9) calc(l * 1.1));
 }}
 
 * {{
@@ -15,6 +16,7 @@
     /* font-style: italic; */
 
     /* *.background */
+
     --background-primary: var(--bg-lightened);
     --background-secondary: var(--bg-lightened);
     --background-tertiary: var(--bg-lightened);
@@ -23,45 +25,54 @@
     --background-secondary-alt: var(--bg-lightened);
     --background-tertiary-alt: var(--bg-lightened);
 
-    --background-modifier-selected: {color8};
+    --background-modifier-selected: var(--bg-bright);
+    --background-modifier-accent: var(--bg-bright);
 
-    /*
-    --button-primary-background: TODO;
-    --button-primary-background-hover: TODO;
-    --button-secondary-background: TODO;
-    --button-secondary-background-hover: TODO;
-    */
-
-    --channeltextarea-background: var(--bg-lightened);
+    --channeltextarea-background: hsl(from var(--bg-lightened) h s calc(l * 1.5));
 
     --profile-body-background-color: var(--bg-lightened);
-    --profile-role-pill-background-color: {color8};
-    --profile-role-pill-corder-color: {color5};
-
+    
     --__header-bar-background: var(--bg-lightened) !important;
 
     --scrollbar-auto-track: var(--bg-lightened);
     --scrollbar-thin-track: var(--bg-lightened);
 
+
+    /* profile adjustments */
+    --profile-role-pill-background-color: {color8};
+    --profile-role-pill-corder-color: {color5};
+
     /* primary.* */
     --primary-630: var(--bg-lightened);
+    --button-primary-background: {color5};
+    --button-primary-background-hover: {color13};
+    --button-secondary-background: {color6};
+    --button-secondary-background-hover: {color14};
 
-    /* *.color2 */
+    /* *.color2 / green */
     --scrollbar-auto-thumb: {color2};
     --scrollbar-thin-thumb: {color2};
 
-    /* *.color3 */
-    --red-400: {color3};
+    --button-positive-background: {color2};
+    --button-positive-background-hover: {color10};
 
-    /* *.color4 */
-    --status-danger: {color4};
-    --button-outline-danger-border: {color4};
-    --button-outline-danger-text: {color4};
-    --button-danger-background: {color4};
+    --green-360: {color10};
+    --green-330: {color2};
 
-    --yellow-300: {color4};
+    /* *.color1 / red */
+    --red-400: {color1};
+    --primary-400: {color9};
+    --button-danger-background: {color1};
+    --button-danger-background-hover: {color9};
 
-    /* *.color5 */
+    /* *.color3 / yellow */
+
+    --button-outline-danger-border: {color3};
+    --button-outline-danger-text: {color3};
+
+    --yellow-300: {color3};
+
+    /* *.color5 / brand / magenta */
     --header-primary: {color13};
     --brand-experiment: {color5};
     --brand-experiment-360: {color5};
@@ -69,36 +80,33 @@
     --brand-500: {color5};
     --profile-gradient-button-color: {color5};
 
-    --green-360: {color5};
-    --green-330: {color5};
-
     /* *.color6 */
     --channels-default: {color6};
     --channel-icon: {color6};
 
-    /* red/yellow/green */
+    /* text/buttons */
+    --status-danger: {color1};
     --text-normal: {color15};
-    --text-link: {color6};
+    --text-link: {color4};
     --text-muted: {color7};
 
-    --text-danger: {color11};
-    --text-warning: {color12};
-    --text-positive: {color13};
+    --text-danger: {color9};
+    --text-warning: {color11};
+    --text-positive: {color10};
 
-    --status-danger: {color11};
-    --status-warning: {color12};
-    --status-positive: {color13};
+    --white-500: hsl(from rgb({color15.rgb}) h s calc(l * 1.5));
 
-    --button-danger-background: {color3};
-    --button-danger-background-hover: {color11};
+    --status-danger: {color9};
+    --status-warning: {color11};
+    --status-positive: {color10};
+
     --button-neutral-background: {color4};
     --button-neutral-background-hover: {color12};
-    --button-positive-background: {color5};
-    --button-positive-background-hover: {color13};
-
+    
     --interactive-normal: {color15};
-    --interactive-hover: {color11};
-    --interactive-active: {color14};
+    --interactive-hover: {color12};
+    --interactive-active: {color13};
+
 
 }}
 
@@ -106,18 +114,18 @@
 /* status indicators */
 
 rect[fill="#80848e"] {{
-    fill: {color8} !important;
+    fill: var(--bg-bright) !important;
 }}
 
 rect[fill="#f23f43"] {{
-    fill: {color3} !important;
+    fill: {color9} !important;
 }}
 
 rect[fill="#f0b232"] {{
-    fill: {color4} !important;
+    fill: {color11} !important;
 }}
 
 rect[fill="#23a55a"] {{
-    fill: {color5} !important;
+    fill: {color10} !important;
 }}
 
