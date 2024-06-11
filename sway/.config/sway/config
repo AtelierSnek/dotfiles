@@ -173,18 +173,18 @@ bindsym --locked --no-repeat $mod+Shift+z exec "rofi -show power-menu -modi powe
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
-        # These bindings trigger as soon as you enter the resize mode
+  # These bindings trigger as soon as you enter the resize mode
 
-        # same bindings, but for the arrow keys
-        bindsym Left resize shrink width 10 px or 10 ppt
-        bindsym Right resize grow width 10 px or 10 ppt
-        bindsym Down resize shrink height 10 px or 10 ppt
-        bindsym Up resize grow height 10 px or 10 ppt
+  # same bindings, but for the arrow keys
+  bindsym Left resize shrink width 10 px or 10 ppt
+  bindsym Right resize grow width 10 px or 10 ppt
+  bindsym Down resize shrink height 10 px or 10 ppt
+  bindsym Up resize grow height 10 px or 10 ppt
 
-        # back to normal: Enter or Escape or $mod+r
-        bindsym Return mode "default"
-        bindsym Escape mode "default"
-        bindsym $mod+r mode "default"
+  # back to normal: Enter or Escape or $mod+r
+  bindsym Return mode "default"
+  bindsym Escape mode "default"
+  bindsym $mod+r mode "default"
 }
 
 bindsym $mod+r mode "resize"
@@ -241,13 +241,18 @@ for_window {
 }
 
 #Don't automatically focus on popped windows
-no_focus [window_role="pop-up"]
+no_focus {
+  [window_role="pop-up"]
+  [window_role="splash"]
+}
+
 no_focus [window_role="splash"]
 
 #Inhibit Idling if:
-for_window [class="Plex"] inhibit_idle visible
-#Sticky Discord Streams
-for_window [floating class="discord"] inhibit_idle visible
+for_window {
+  [class="Plex"] inhibit_idle visible
+  [floating class="discord"] inhibit_idle visible
+}
 
 # ==== Window Urgency ====
 
