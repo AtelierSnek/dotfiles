@@ -23,12 +23,12 @@
 
 @keyframes blink-critical {
 	70% {
-		color: @light;
+		color: @color15;
 	}
 
 	to {
-		color: @light;
-		background-color: @critical;
+		color: @color15;
+		background-color: @color8;
 	}
 }
 
@@ -129,6 +129,7 @@
 /* Each module that should blink */
 #mode,
 #memory,
+#cpu,
 #temperature,
 #battery {
 	animation-timing-function: linear;
@@ -137,16 +138,32 @@
 }
 
 /* Each critical module */
+
+#memory.critical,
+#battery.critical {
+  background-color: @color5;
+}
+
+#temperature.critical,
+#cpu.critical {
+  background-color: @color3;
+}
+
+#battery.critical {
+  background-color: @color5;
+}
+
 #memory.critical,
 #cpu.critical,
 #temperature.critical,
 #battery.critical {
-	color: @critical;
+	color: @color15;
 }
 
 /* Each critical that should blink */
 #mode,
 #memory.critical,
+#cpu.critical,
 #temperature.critical,
 #battery.critical.discharging {
 	animation-name: blink-critical;
@@ -166,6 +183,7 @@
 #battery.warning.discharging {
 	animation-name: blink-warning;
 	animation-duration: 3s;
+  background-color: @color5;
 }
 
 /* And now modules themselves in their respective order */
@@ -243,11 +261,11 @@
 }
 
 #tray {
-	background: @date;
+	background: @workspaces;
 }
 
 #clock.date {
-	background: @date;
+	background: @time;
 	color: @dark;
 }
 
