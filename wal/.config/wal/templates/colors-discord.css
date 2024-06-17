@@ -7,7 +7,8 @@
 */
 
 :root {{
-    --bg-lightened: hsl(from rgb({background.rgb}) h calc(s * 0.9) calc(l * 1.6));
+    --bg-lightened: hsl(from rgb({background.rgb}) h calc(s * 0.9) calc(l * 1.4));
+    --bg-highlight: hsl(from var(--bg-lightened) h s calc(l * 1.5));
     --bg-bright: hsl(from rgb({color8.rgb}) h calc(s * 0.9) calc(l * 1.1));
 }}
 
@@ -25,13 +26,13 @@
     --background-secondary-alt: var(--bg-lightened);
     --background-tertiary-alt: var(--bg-lightened);
 
-    --background-modifier-selected: var(--bg-bright);
-    --background-modifier-accent: var(--bg-bright);
+    --background-modifier-selected: var(--bg-highlight);
+    --background-modifier-accent:  var(--bg-highlight);
 
-    --channeltextarea-background: hsl(from var(--bg-lightened) h s calc(l * 1.5));
+    --channeltextarea-background: var(--bg-highlight);
 
     --profile-body-background-color: var(--bg-lightened);
-    
+
     --__header-bar-background: var(--bg-lightened) !important;
 
     --scrollbar-auto-track: var(--bg-lightened);
@@ -57,6 +58,7 @@
     --button-positive-background-hover: {color10};
 
     --green-360: {color10};
+    --status-speaking: {color10};
     --green-330: {color2};
 
     /* *.color1 / red */
@@ -73,7 +75,7 @@
     --yellow-300: {color3};
 
     /* *.color5 / brand / magenta */
-    --header-primary: {color13};
+    --header-primary: {color11};
     --brand-experiment: {color5};
     --brand-experiment-360: {color5};
     --brand-experiment-500: {color5};
@@ -87,7 +89,7 @@
     /* text/buttons */
     --status-danger: {color1};
     --text-normal: {color15};
-    --text-link: {color4};
+    --text-link: {color12};
     --text-muted: {color7};
 
     --text-danger: {color9};
@@ -102,10 +104,10 @@
 
     --button-neutral-background: {color4};
     --button-neutral-background-hover: {color12};
-    
+
     --interactive-normal: {color15};
     --interactive-hover: {color12};
-    --interactive-active: {color13};
+    --interactive-active: {color11};
 
 
 }}
