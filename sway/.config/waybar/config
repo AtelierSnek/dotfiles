@@ -81,7 +81,7 @@
   },
 
   "cpu": {
-    "interval": 5,
+    "interval": 2,
     "tooltip": false,
     "format": " {usage}%", // Icon: microchip
     "states": {
@@ -175,8 +175,8 @@
 
   "temperature": {
     "critical-threshold": 90,
-    "hwmon-path": "/sys/class/hwmon/hwmon0/temp2_input",
-    "interval": 5,
+    "hwmon-path": "/sys/class/hwmon/hwmon3/temp1_input",
+    "interval": 2,
     //"format": "{icon} {temperatureC}°C",
     "format": "{icon} {temperatureC}°",
     "format-icons": [
