@@ -252,6 +252,7 @@ no_focus [window_role="splash"]
 for_window {
   [class="Plex"] inhibit_idle visible
   [floating class="discord"] inhibit_idle visible
+  [floating class="vesktop"] inhibit_idle visible
 }
 
 # ==== Window Urgency ====
