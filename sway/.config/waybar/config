@@ -36,7 +36,6 @@
     "temperature",
     "disk",
     "battery",
-    "clock#date",
     "clock#time"
   ],
 
@@ -64,13 +63,19 @@
 
   "clock#time": {
     "interval": 10,
-    "format": "{:%H:%M %Z}",
+    "format": "{:L%e %b %Y  %H:%M %Z}",
     "timezones": [
       "Australia/Sydney",
       "America/Los_Angeles",
-      "America/Chicago"
+      "America/Chicago",
+      "America/New_York"
     ],
-    "tooltip": false
+    "tooltip": false,
+    "tooltip-format": "{tz_list}",
+    "actions": {
+      "on-scroll-up": "tz_up",
+      "on-scroll-down": "tz_down"
+    }
   },
 
   "clock#date": {
