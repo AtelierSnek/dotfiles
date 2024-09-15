@@ -215,6 +215,7 @@ assign {
   [class="Vivaldi"] number $ws2
   [class="discord"] number $ws3
   [class="vesktop"] number $ws3
+  [app_id="vesktop"] number $ws3
   [class="Signal"] number $ws4
   [class="Steam"] number $ws5
   [title="Steam"] number $ws5
@@ -229,6 +230,7 @@ for_window {
   [title="Steam - News"] floating enable
   [title="Steam Settings"] floating enable
   [title="Friends List"] floating enable
+  [title="SteamTinkerLaunch"] floating enable
 }
 
 # Sticky Windows
