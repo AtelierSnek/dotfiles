@@ -165,6 +165,7 @@ let g:ale_fix_on_save = 1
 let g:ale_fixers = {
       \ 'python': ['black','trim_whitespace'],
       \ 'ansible': ['trim_whitespace'],
+      \ 'markdown': ['trim_whitespace']
       \}
 
 nmap <F8> <Plug>(ale_fix)
