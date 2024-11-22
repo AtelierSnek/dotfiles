@@ -36,6 +36,8 @@ input type:keyboard {
 input type:touchpad {
   natural_scroll enabled
   click_method clickfinger
+  scroll_factor 0.2
+  accel_profile adaptive
 }
 
 include sway-io
@@ -132,11 +134,18 @@ bindsym $mod+9 workspace number $ws9
 bindsym $mod+0 workspace number $ws10
 bindsym $mod+Equal scratchpad show
 
+
+### Laptop Settings ###
+
 # gesture controls for workspace switch (natural scrolling)
 bindgesture swipe:3:right workspace prev
 bindgesture swipe:3:left workspace next
 bindgesture swipe:4:up move container to scratchpad
 bindgesture swipe:4:down scratchpad show
+
+# Mode switch controls
+bindswitch --locked lid:on exec systemctl suspend
+
 
 # move focused container to workspace
 bindsym $mod+Shift+1 move container to workspace number $ws1
