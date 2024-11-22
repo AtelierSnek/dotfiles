@@ -45,7 +45,11 @@ include sway-io
 # Start mako when sway starts
 exec_always --no-startup-id mako
 
+# Start up workstyle if we have it
 exec_always --no-startup-id workstyle &> /tmp/workstyle.log
+
+# Rin tzupdate so that we can change our timezone if we're travelling
+exec_always --no-startup-id tzupdate -s 10
 
 # Use pactl to adjust volume in PulseAudio.
 bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +2%
