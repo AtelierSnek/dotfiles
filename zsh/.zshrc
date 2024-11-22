@@ -103,6 +103,10 @@ if [ -x "$(command -v yarn)" ];then
   export PATH="$PATH:$HOME/.yarn/bin"
 fi
 
+if [ -x "$(command -v cargo)" ];then
+  export PATH="$PATH:$HOME/.cargo/bin"
+fi
+
 #Export local .bin
 export PATH="$PATH:$HOME/.local/bin"
 
