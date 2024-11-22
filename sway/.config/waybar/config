@@ -70,9 +70,12 @@
       "America/Chicago",
       "America/New_York"
     ],
-    "tooltip": false,
+    "tooltip": true,
     "tooltip-format": "{tz_list}",
+    "smooth-scrolling-threshold": "0.3",
     "actions": {
+      "on-click": "tz_up",
+      "on-click-right": "tz_down",
       "on-scroll-up": "tz_up",
       "on-scroll-down": "tz_down"
     }
