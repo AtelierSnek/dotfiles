@@ -165,7 +165,8 @@ let g:ale_fix_on_save = 1
 let g:ale_fixers = {
       \ 'python': ['black','trim_whitespace'],
       \ 'ansible': ['trim_whitespace'],
-      \ 'markdown': ['trim_whitespace']
+      \ 'markdown': ['trim_whitespace'],
+      \ 'json': ['jq','trim_whitespace']
       \}
 
 nmap <F8> <Plug>(ale_fix)
@@ -268,7 +269,7 @@ autocmd FileType markdown {
 }
 
 autocmd FileType gitcommit {
-  set spell  
+  set spell
 }
 
 " Correctly detect Ansible files
