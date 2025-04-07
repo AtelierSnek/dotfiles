@@ -177,3 +177,5 @@ autoload -Uz history-beginning-search-menu
 zle -N history-beginning-search-menu
 bindkey '^X^X' history-beginning-search-menu
 
+autoload -U +X bashcompinit && bashcompinit
+complete -o nospace -C /opt/homebrew/bin/terraform terraform
