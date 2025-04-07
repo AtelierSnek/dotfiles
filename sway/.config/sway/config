@@ -285,11 +285,21 @@ bindsym Shift+Alt+4 exec grim -t png -g "$(slurp)" - | wl-copy
 gaps inner 3
 gaps outer 3
 
+
+for_window {
+  [app_id="kitty"] border none; blur enable; blur_passes 3; blur_radius 2; blur_brightness 0.9; opacity 0.9
+  [app_id="code-oss"] blur enable; blur_passes 3; blur_radius 2; blur_brightness 0.9; opacity 0.9
+}
+
 corner_radius 12
 
 shadows on
 
-layer_effects notifications blur enable; corner_radius 12; blur_ignore_transparent enable
+layer_effects "notifications" {
+  blur enable;
+  corner_radius 12;
+  blur_ignore_transparent enable
+}
 
 default_dim_inactive 0.10
 
