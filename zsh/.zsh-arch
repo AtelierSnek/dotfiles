@@ -12,4 +12,4 @@ export _JAVA_AWT_WM_NONREPARENTING=1
 # 3: llvm-git from LordHeavy' unofficial repo
 # 4: llvm from extra repo
 
-export  MESA_WHICH_LLVM=1
+export  MESA_WHICH_LLVM=4
