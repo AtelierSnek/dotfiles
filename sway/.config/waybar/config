@@ -67,7 +67,7 @@
     "timezones": [
       "Australia/Sydney",
       "America/Los_Angeles",
-      "America/Chicago",
+      "America/Denver",
       "America/New_York"
     ],
     "tooltip": true,
