@@ -1,0 +1,22 @@
+configuration {
+  modes: "drun,calc,emoji:/usr/bin/rofimoji";
+  font: "FiraCode Nerd Font";
+  show-icons: true;
+  case-smart: true;
+  sort: true;
+  
+  run-shell-command:  "kitty -e zsh -ic \"{cmd} && read\"";
+  
+  filebrowser {
+      directories-first: true;
+      sorting-method:    "name";
+  }
+
+  timeout {
+      action: "kb-cancel";
+      delay:  0;
+  }
+  
+}
+@import "base-theme"
+@import "~/.cache/wal/colors-rofi-light"
