@@ -13,3 +13,6 @@ export _JAVA_AWT_WM_NONREPARENTING=1
 # 4: llvm from extra repo
 
 export  MESA_WHICH_LLVM=4
+
+# Proton/Wine Options
+PROTON_ENABLE_WAYLAND=1
