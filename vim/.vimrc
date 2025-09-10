@@ -163,10 +163,12 @@ let g:ale_lint_on_text_changed = 1 " Don't lint while we're typing
 let g:ale_fix_on_save = 1
 
 let g:ale_fixers = {
-      \ 'python': ['black','trim_whitespace'],
-      \ 'ansible': ['trim_whitespace'],
-      \ 'markdown': ['trim_whitespace'],
-      \ 'json': ['jq','trim_whitespace']
+      \ '*': ['trim_whitespace'],
+      \ 'python': ['black'],
+      \ 'ansible': [],
+      \ 'markdown': [],
+      \ 'json': ['jq'],
+      \ 'bash': ['shfmt']
       \}
 
 nmap <F8> <Plug>(ale_fix)
@@ -179,6 +181,7 @@ let g:ale_set_echo_cursor = 1
 let g:ale_linters = {
       \ 'python': ['mypy','pylint'],
       \ 'ansible': ['ansible-language-server'],
+      \ 'bash': ['shellcheck','shfmt'],
       \}
 
 " ==== YCM settings ====
@@ -275,6 +278,7 @@ autocmd FileType gitcommit {
 " Correctly detect Ansible files
 au BufRead,BufNewFile */playbooks/*.yml set filetype=yaml.ansible
 au BufRead,BufNewFile *.yml set filetype=yaml.ansible
+au BufRead,BufNewFile *.dot set filetype=bash
 
 " Disable "recommended style" as it uses 4 space tabs
 let g:markdown_recommended_style = 0
