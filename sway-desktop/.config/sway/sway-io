@@ -12,5 +12,7 @@ input "5426:132:Razer_Razer_DeathAdder_V2" {
 output DP-1 {
   resolution 2560x1440
   adaptive_sync on
+  allow_tearing yes
+  max_render_time off
   pos 0 0
 }

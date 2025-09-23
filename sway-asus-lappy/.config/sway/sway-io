@@ -8,6 +8,8 @@ output eDP-1 {
   resolution 2560x1440
   scale 1.25
   adaptive_sync on
+  allow_tearing yes
+  max_render_time off
   pos 0 0
 }
 
