@@ -63,13 +63,15 @@ focus_follows_mouse no
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
 ### Idle configuration
-#
+# This requires [swaylock-effects](https://github.com/jirutka/swaylock-effects)
+
+set $swaylockfx 'swaylock -f --indicator --clock --fade-in 2 --effect-blur 8x2 --effect-greyscale --screenshots'
 exec swayidle -w \
-   timeout 1800 'swaylock -f -i $wallpaper' \
+   timeout 1800 $swaylockfx \
    timeout 600 'swaymsg "output * dpms off"' \
    resume 'swaymsg "output * dpms on"' \
-   before-sleep 'swaylock -f -i $wallpaper' \
-   lock 'swaylock -f -i $wallpaper'
+   before-sleep $swaylockfx \
+   lock $swaylockfx
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -261,8 +263,6 @@ no_focus {
   [window_role="splash"]
 }
 
-no_focus [window_role="splash"]
-
 #Inhibit Idling if:
 for_window {
   [class="Plex"] inhibit_idle visible
@@ -289,6 +289,7 @@ gaps outer 3
 for_window {
   [app_id="kitty"] border none; blur enable; blur_passes 3; blur_radius 2; blur_brightness 0.9; opacity 0.85
   [app_id="code-oss"] blur enable; blur_passes 3; blur_radius 2; blur_brightness 0.9; opacity 0.9
+  [app_id="rofi"] opacity 0.9
 }
 
 corner_radius 12
@@ -298,7 +299,18 @@ shadows on
 layer_effects "notifications" {
   blur enable;
   corner_radius 12;
-  blur_ignore_transparent enable
+  blur_ignore_transparent enable;
+}
+
+layer_effects "waybar" {
+  blur_enable;
+  blur_ignore_transparent enable;
+}
+
+layer_effects "rofi" {
+  blur enable;
+  blur_ignore_transparent enable;
+  corner_radius 8;
 }
 
 default_dim_inactive 0.10
