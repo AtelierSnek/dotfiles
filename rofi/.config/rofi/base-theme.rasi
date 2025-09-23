@@ -2,14 +2,32 @@
     red:                         rgba ( 220, 50, 47, 100 % );
     lightfg:                     rgba ( 88, 104, 117, 100 % );
     lightbg:                     rgba ( 238, 232, 213, 100 % );
-    spacing:                     2;
+    background:                  transparent;
+    //spacing:                     2;
 }
 element {
-    padding: 1px ;
+    padding: 0px ;
     cursor:  pointer;
-    spacing: 5px ;
+    children: [ element-text, element-icon ];
+    spacing: 0px;
     border:  0;
 }
+element-text {
+    background-color: transparent;
+    cursor:           inherit;
+    highlight:        inherit;
+    text-color:       inherit;
+    vertical-align: 0.5;
+    padding: 6px;
+}
+element-icon {
+    background-color: transparent;
+    size:             32px ;
+    cursor:           inherit;
+    text-color:       inherit;
+    align: center;
+}
+
 element normal.normal {
     background-color: var(normal-background);
     text-color:       var(normal-foreground);
@@ -46,21 +64,12 @@ element alternate.active {
     background-color: var(alternate-active-background);
     text-color:       var(alternate-active-foreground);
 }
-element-text {
-    background-color: transparent;
-    cursor:           inherit;
-    highlight:        inherit;
-    text-color:       inherit;
-}
-element-icon {
-    background-color: transparent;
-    size:             1em ;
-    cursor:           inherit;
-    text-color:       inherit;
-}
+
 window {
-    padding:          5;
+    padding:          0;
     border:           0;
+    transparency: "real";
+    background: var(background);
 }
 mainbox {
     padding: 0;
@@ -107,7 +116,7 @@ num-rows {
 }
 textbox-num-sep {
     expand:     false;
-    str:        "/";
+    str:        " matched of ";
 }
 inputbar {
     padding:    1px ;

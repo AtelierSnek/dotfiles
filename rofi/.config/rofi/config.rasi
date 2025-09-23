@@ -1,12 +1,15 @@
 configuration {
   modes: "drun,calc,emoji:/usr/bin/rofimoji";
-  font: "FiraCode Nerd Font";
+  font: "FiraCode Nerd Font 14";
+
   show-icons: true;
+  icon-theme: "Papirus-Dark";
+  sidebar-mode: true;
   case-smart: true;
   sort: true;
-  
+
   run-shell-command:  "kitty -e zsh -ic \"{cmd} && read\"";
-  
+
   filebrowser {
       directories-first: true;
       sorting-method:    "name";
@@ -16,7 +19,7 @@ configuration {
       action: "kb-cancel";
       delay:  0;
   }
-  
+
 }
-@import "base-theme"
 @import "~/.cache/wal/colors-rofi-light"
+@import "base-theme"
