@@ -1,6 +1,6 @@
 #!/bin/bash
 export WALLS_DIR="$HOME/walls"
-  wal -i $WALLS_DIR --backend haishoku --cols16 darken --contrast 1.0
+  wal -i $WALLS_DIR --backend fast-colorthief --cols16 darken -a 90
 
 
   # App Specific Links

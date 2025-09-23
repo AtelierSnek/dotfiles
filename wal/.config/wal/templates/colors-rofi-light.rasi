@@ -4,7 +4,7 @@
 
 
     foreground:                  {foreground};
-    background:                  {background};
+    background:                  {background.rgba};
 
 
     normal-foreground:           {color0};
@@ -29,10 +29,6 @@
     selected-urgent-background:  var(red);
 
     background-color:            {color8};
-}}
-
-window {{
-    background-color: {background};
 }}
 
 textbox {{
