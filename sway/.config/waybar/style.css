@@ -42,22 +42,23 @@
 @import "colors-waybar.css";
 
 @define-color light @foreground;
+@define-color background alpha(@color0, 0.95);
 @define-color dark @background;
 @define-color warning @color8;
 @define-color critical @color7;
 @define-color mode @color2;
 @define-color workspaces @color4;
 @define-color workspacesfocused @color13;
-@define-color sound @color10;
-@define-color network @color14;
-@define-color memory @color13;
-@define-color cpu @color11;
-@define-color temp @color11;
-@define-color disk @color12;
-@define-color layout @color12;
-@define-color battery @color13;
-@define-color date @color13;
-@define-color time @color14;
+@define-color sound @color2;
+@define-color network @color6;
+@define-color memory @color5;
+@define-color cpu @color3;
+@define-color temp @color3;
+@define-color disk @color4;
+@define-color layout @color4;
+@define-color battery @color5;
+@define-color date @color5;
+@define-color time @color6;
 
 /* Gruvbox */
 /*
@@ -87,10 +88,14 @@
 	padding: 0;
 }
 
+window#waybar {
+  background: @background;
+}
+/* TODO: Detach this from the top and give it rounded corners */
 /* The whole bar */
 #waybar {
   background: @background;
-	opacity: 0.90;
+	opacity: 0.80;
 	color: @light;
 	font-family: FiraCode Nerd Font, Terminus, Siji;
 	font-size: 12pt;

@@ -231,7 +231,7 @@ assign {
   [class="discord"] number $ws3
   [class="vesktop"] number $ws3
   [app_id="vesktop"] number $ws3
-  [class="Signal"] number $ws4
+  [app_id="Signal"] number $ws4
   [class="Steam"] number $ws5
   [title="Steam"] number $ws5
   [class="Plex"]  number $ws6
@@ -290,6 +290,9 @@ for_window {
   [app_id="kitty"] border none; blur enable; blur_passes 3; blur_radius 2; blur_brightness 0.9; opacity 0.85
   [app_id="code-oss"] blur enable; blur_passes 3; blur_radius 2; blur_brightness 0.9; opacity 0.9
   [app_id="rofi"] opacity 0.9
+  [class="discord"] blur enable; blur_passes 3; blur_radius 4; blur_brightness 0.9; opacity 0.9
+  [class="vesktop"] blur enable; blur_passes 3; blur_radius 4; blur_brightness 0.9; opacity 0.9
+  [class="Cider"] blur enable; blur_passes 3; blur_radius 4; blur_brightness 0.9; opacity 0.8
 }
 
 corner_radius 12
@@ -305,6 +308,7 @@ layer_effects "notifications" {
 layer_effects "waybar" {
   blur_enable;
   blur_ignore_transparent enable;
+  corner_radius 12;
 }
 
 layer_effects "rofi" {
