@@ -168,7 +168,9 @@ let g:ale_fixers = {
       \ 'ansible': [],
       \ 'markdown': [],
       \ 'json': ['jq'],
-      \ 'bash': ['shfmt']
+      \ 'bash': ['shfmt'],
+      \ 'sh': ['shfmt'],
+      \ 'zsh': ['shfmt'],
       \}
 
 nmap <F8> <Plug>(ale_fix)
@@ -182,6 +184,8 @@ let g:ale_linters = {
       \ 'python': ['mypy','pylint'],
       \ 'ansible': ['ansible-language-server'],
       \ 'bash': ['shellcheck','shfmt'],
+      \ 'sh': ['shellcheck', 'shfmt'],
+      \ 'zsh': ['shellcheck', 'shfmt'],
       \}
 
 " ==== YCM settings ====
