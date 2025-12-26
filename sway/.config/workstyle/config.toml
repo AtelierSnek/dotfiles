@@ -18,8 +18,12 @@
 "discord" = ""
 "vesktop" = ""
 "signal" = "󰿌"
+
+
+# Games Things
 "steam" = ""
 "wine" = ""
+"bh.x86_64" = ""
 
 "google" = ""
 "firefox" = ""
