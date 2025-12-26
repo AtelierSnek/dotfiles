@@ -67,8 +67,8 @@ floating_modifier $mod
 
 set $swaylockfx 'swaylock -f --indicator --clock --fade-in 2 --effect-blur 8x2 --effect-greyscale --screenshots'
 exec swayidle -w \
-   timeout 1800 $swaylockfx \
-   timeout 600 'swaymsg "output * dpms off"' \
+   timeout 600 $swaylockfx \
+   timeout 1800 'swaymsg "output * dpms off"' \
    resume 'swaymsg "output * dpms on"' \
    before-sleep $swaylockfx \
    lock $swaylockfx
