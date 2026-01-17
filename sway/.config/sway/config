@@ -65,12 +65,12 @@ floating_modifier $mod
 ### Idle configuration
 # This requires [swaylock-effects](https://github.com/jirutka/swaylock-effects)
 
-set $swaylockfx 'swaylock --indicator --clock --grace 300 --grace-no-mouse --fade-in 2 --effect-blur 8x2 --effect-greyscale --screenshots'
+set $swaylockfx 'swaylock -f --indicator --clock --grace 300 --grace-no-mouse --fade-in 2 --effect-blur 8x2 --effect-greyscale --screenshots'
 exec swayidle -w \
    lock $swaylockfx \
    timeout 600 "loginctl lock-session" \
    timeout 901 'swaymsg "output * dpms off"' \
-   beforesleep "$swaylockfx -f" \
+   beforesleep "loginctl lock-session" \
    timeout 1201 "systemctl suspend" \
    resume 'swaymsg "output * dpms on"' \
 
