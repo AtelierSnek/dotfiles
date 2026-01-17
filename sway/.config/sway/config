@@ -48,7 +48,7 @@ exec_always --no-startup-id mako
 # Start up workstyle if we have it
 exec_always --no-startup-id workstyle &> /tmp/workstyle.log
 
-# Rin tzupdate so that we can change our timezone if we're travelling
+# Run tzupdate so that we can change our timezone if we're travelling
 exec_always --no-startup-id tzupdate -s 10
 
 # Use pactl to adjust volume in PulseAudio.
@@ -65,13 +65,14 @@ floating_modifier $mod
 ### Idle configuration
 # This requires [swaylock-effects](https://github.com/jirutka/swaylock-effects)
 
-set $swaylockfx 'swaylock -f --indicator --clock --fade-in 2 --effect-blur 8x2 --effect-greyscale --screenshots'
+set $swaylockfx 'swaylock --indicator --clock --grace 300 --grace-no-mouse --fade-in 2 --effect-blur 8x2 --effect-greyscale --screenshots'
 exec swayidle -w \
-   timeout 600 $swaylockfx \
-   timeout 1800 'swaymsg "output * dpms off"' \
+   lock $swaylockfx \
+   timeout 600 "loginctl lock-session" \
+   timeout 901 'swaymsg "output * dpms off"' \
+   beforesleep "$swaylockfx -f" \
+   timeout 1201 "systemctl suspend" \
    resume 'swaymsg "output * dpms on"' \
-   before-sleep $swaylockfx \
-   lock $swaylockfx
 
 # kill focused window
 bindsym $mod+Shift+q kill
