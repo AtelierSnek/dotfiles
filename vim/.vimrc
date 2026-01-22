@@ -290,3 +290,4 @@ let g:markdown_recommended_style = 0
 " Source in our theme if we're on a non-transparent terminal, or somewhere we
 " care about distinguishing things
 call SourceIfExists("~/.vim-theme")
+call SourceIfExists("~/.vim-work")
