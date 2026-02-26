@@ -255,7 +255,7 @@ for_window [instance="file_progress"] sticky enable
 
 # Floating Windows should have a title
 for_window {
-  [floating class="discord"] border none; opacity 0.75
+  [floating class="discord"] border none; opacity 0.80
   [floating] border normal
 }
 
