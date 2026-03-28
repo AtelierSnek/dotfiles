@@ -12,11 +12,11 @@
 
 @keyframes blink-warning {
 	70% {
-		color: @color4;
+		color: @color0;
 	}
 
 	to {
-		color: @color4;
+		color: @color0;
 		background-color: @warning;
 	}
 }
@@ -42,7 +42,7 @@
 @import "colors-waybar.css";
 
 @define-color light @foreground;
-@define-color background alpha(@color0, 0.95);
+@define-color background @background;
 @define-color dark @background;
 @define-color warning @color8;
 @define-color critical @color7;
@@ -95,7 +95,6 @@ window#waybar {
 /* The whole bar */
 #waybar {
   background: @background;
-	opacity: 0.80;
 	color: @light;
 	font-family: FiraCode Nerd Font, Terminus, Siji;
 	font-size: 12pt;
