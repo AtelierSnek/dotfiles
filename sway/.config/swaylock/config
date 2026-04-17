@@ -1,0 +1,10 @@
+daemonize
+indicator
+clock
+grace=300
+grace-no-mouse
+grace-no-touch
+fade-in=5
+effect-blur=8x2
+effect-greyscale
+screenshots
