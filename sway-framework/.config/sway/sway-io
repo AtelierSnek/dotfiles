@@ -7,6 +7,7 @@ input "PIXA3854:00 093A:0239 Touchpad" {
   pointer_accel 0
   click_method clickfinger
   clickfinger_button_map lrm
+  tap enabled
   tap_button_map lrm
   natural_scroll enabled
   scroll_method two_finger
@@ -35,6 +36,13 @@ output HDMI-A-1 {
   pos 1920 0
   scale 1.0
 }
+# ==== Bindings ====
 
 bindsym $mod+p output HDMI-A-1 power toggle
 
+# Screen Brightness
+bindcode 225 exec light -A 10
+bindcode 224 exec light -U 10
+
+bindcode 37+225 exec light -A 5
+bindcode 37+224 exec light -U 5
