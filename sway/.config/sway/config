@@ -65,12 +65,12 @@ floating_modifier $mod
 ### Idle configuration
 # This requires [swaylock-effects](https://github.com/jirutka/swaylock-effects)
 
-set $swaylockfx 'swaylock -f --indicator --clock --grace 300 --grace-no-mouse --fade-in 2 --effect-blur 8x2 --effect-greyscale --screenshots'
+set $swaylockfx 'swaylock'
 exec swayidle -w \
    lock $swaylockfx \
-   timeout 600 "loginctl lock-session" \
+   timeout 600 $swaylockfx \
    timeout 901 'swaymsg "output * dpms off"' \
-   beforesleep "loginctl lock-session" \
+   beforesleep $swaylockfx \
    timeout 1201 "systemctl suspend" \
    resume 'swaymsg "output * dpms on"' \
 
@@ -290,7 +290,9 @@ gaps outer 3
 
 for_window {
   [app_id="kitty"] border none; blur enable; blur_passes 3; blur_radius 2; blur_brightness 0.9; opacity 0.85
+  [app_id="com.mitchellh.ghostty"] blur enable; blur_passs 3; blur_radius 2; blur_brightness 0.9
   [app_id="code-oss"] blur enable; blur_passes 3; blur_radius 2; blur_brightness 0.9; opacity 0.9
+  [app_id="obsidian"] blur enable; blur_passes 3; blur_radius 2; blur_brightness 0.9; opacity 0.9
   [app_id="rofi"] opacity 0.9
   [class="discord"] blur enable; blur_passes 3; blur_radius 4; blur_brightness 0.9; opacity 0.9
   [class="vesktop"] blur enable; blur_passes 3; blur_radius 4; blur_brightness 0.9; opacity 0.9
@@ -309,8 +311,6 @@ layer_effects "notifications" {
 
 layer_effects "waybar" {
   blur_enable;
-  blur_ignore_transparent enable;
-  corner_radius 12;
 }
 
 layer_effects "rofi" {

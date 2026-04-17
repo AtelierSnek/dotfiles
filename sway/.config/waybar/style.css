@@ -11,25 +11,24 @@
  * -------------------------------------------------------------------------- */
 
 @keyframes blink-warning {
-	70% {
-		color: @color0;
-	}
+  70% {
+    color: @dark;
+  }
 
-	to {
-		color: @color0;
-		background-color: @warning;
-	}
+  to {
+    color: #f3a91f;
+    background-color: @warning;
+  }
 }
 
 @keyframes blink-critical {
-	70% {
-		color: @color15;
-	}
+  70% {
+    color: @light;
+  }
 
-	to {
-		color: @color15;
-		background-color: @color8;
-	}
+  to {
+    background-color: #dd3434;
+  }
 }
 
 
@@ -41,15 +40,14 @@
 
 @import "colors-waybar.css";
 
-@define-color light @foreground;
-@define-color background @background;
-@define-color dark @background;
+@define-color light @fg;
+@define-color dark @bg;
 @define-color warning @color8;
 @define-color critical @color7;
 @define-color mode @color2;
 @define-color workspaces @color4;
 @define-color workspacesfocused @color13;
-@define-color sound @color2;
+@define-color sound @color5;
 @define-color network @color6;
 @define-color memory @color5;
 @define-color cpu @color3;
@@ -60,44 +58,25 @@
 @define-color date @color5;
 @define-color time @color6;
 
-/* Gruvbox */
-/*
-@define-color light #ebdbb2;
-@define-color dark #282828;
-@define-color warning #fabd2f;
-@define-color critical #cc241d;
-@define-color mode #a89984;
-@define-color workspaces #458588;
-@define-color workspacesfocused #83a598;
-@define-color sound #d3869b;
-@define-color network #b16286;
-@define-color memory #8ec07c;
-@define-color cpu #98971a;
-@define-color temp #b8bb26;
-@define-color layout #689d6a;
-@define-color battery #fabd2f;
-@define-color date #282828;
-@define-color time #ebdbb2;
-*/
 /* Reset all styles */
 * {
-	border: none;
-	border-radius: 0;
-	min-height: 0;
-	margin: 0;
-	padding: 0;
+  border: none;
+  border-radius: 0;
+  min-height: 0;
+  margin: 0;
+  padding: 0;
 }
 
 window#waybar {
-  background: @background;
+  background: @color0;
 }
 /* TODO: Detach this from the top and give it rounded corners */
 /* The whole bar */
 #waybar {
-  background: @background;
-	color: @light;
-	font-family: FiraCode Nerd Font, Terminus, Siji;
-	font-size: 12pt;
+  background: @color0;
+  color: @light;
+  font-family: FiraCode Nerd Font, Terminus, Siji;
+  font-size: 11pt;
   font-weight: bold;
 }
 
@@ -126,8 +105,8 @@ window#waybar {
 #custom-alsa,
 #sndio,
 #tray {
-	padding-left: 18px;
-	padding-right: 18px;
+  padding-left: 12px;
+  padding-right: 12px;
 }
 
 /* Each module that should blink */
@@ -136,9 +115,9 @@ window#waybar {
 #cpu,
 #temperature,
 #battery {
-	animation-timing-function: linear;
-	animation-iteration-count: infinite;
-	animation-direction: alternate;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
 }
 
 /* Each critical module */
@@ -161,7 +140,7 @@ window#waybar {
 #cpu.critical,
 #temperature.critical,
 #battery.critical {
-	color: @color15;
+  color: @color15;
 }
 
 /* Each critical that should blink */
@@ -170,8 +149,8 @@ window#waybar {
 #cpu.critical,
 #temperature.critical,
 #battery.critical.discharging {
-	animation-name: blink-critical;
-	animation-duration: 2s;
+  animation-name: blink-critical;
+  animation-duration: 2s;
 }
 
 /* Each warning */
@@ -180,105 +159,110 @@ window#waybar {
 #cpu.warning,
 #temperature.warning,
 #battery.warning {
-	color: @warning;
+  color: @warning;
 }
 
 /* Each warning that should blink */
 #battery.warning.discharging {
-	animation-name: blink-warning;
-	animation-duration: 3s;
+  animation-name: blink-warning;
+  animation-duration: 3s;
   background-color: @color5;
 }
 
 /* And now modules themselves in their respective order */
 
 #mode { /* Shown current Sway mode (resize etc.) */
-	color: @dark;
-	background: @mode;
+  color: @dark;
+  background: @mode;
 }
 
 /* Workspaces stuff */
 #workspaces button {
-	/*font-weight: bold;*/
-	padding-left: 4px;
-	padding-right: 4px;
-	color: @dark;
-	background: @workspaces;
+  /*font-weight: bold;*/
+  padding-left: 4px;
+  padding-right: 4px;
+  color: @dark;
+  background: @workspaces;
 }
 
 #idle_inhibitor {
-	color: @dark;
-	background: @workspaces;
-	padding-left: 8px;
-	padding-right: 10px;
+  color: @dark;
+  background: @workspaces;
+  padding-left: 8px;
+  padding-right: 10px;
 }
 
 #workspaces button.focused {
-	background: @workspacesfocused;
+  background: @workspacesfocused;
 }
 
 /*#workspaces button.urgent {
-	border-color: #c9545d;
-	color: #c9545d;
+  border-color: #c9545d;
+  color: #c9545d;
 }*/
 
 #window {
-	margin-right: 40px;
-	margin-left: 40px;
+  margin-right: 40px;
+  margin-left: 40px;
 }
 
 #custom-alsa,
 #pulseaudio,
 #sndio {
-	background: @sound;
-	color: @dark;
+  background: @sound;
+  color: @dark;
 }
 
 #network {
-	background: @network;
-	color: @dark;
+  background: @network;
+  color: @dark;
 }
 
 #memory {
-	background: @memory;
-	color: @dark;
+  background: @memory;
+  color: @dark;
 }
 
 #cpu {
-	background: @cpu;
-	color: @dark;
+  background: @cpu;
+  color: @dark;
 }
 
 #temperature {
-	background: @temp;
-	color: @dark;
+  background: @temp;
+  color: @dark;
 }
 
 #language,#disk {
-	background: @disk;
-	color: @dark;
+  background: @disk;
+  color: @dark;
 }
 
 #battery {
-	background: @battery;
-	color: @dark;
+  background: @battery;
+  color: @dark;
 }
 
 #tray {
-	background: @workspaces;
+  background: @workspaces;
+}
+
+#clock {
+  padding-left: 0px;
+  padding-right: 12px;
 }
 
 #clock.date {
-	background: @time;
-	color: @dark;
+  background: @time;
+  color: @dark;
 }
 
 #clock.time {
-	background: @time;
-	color: @dark;
+  background: @time;
+  color: @dark;
 }
 
 #pulseaudio.muted {
-	/* No styles */
+  /* No styles */
 }
 

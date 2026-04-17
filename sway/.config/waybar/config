@@ -11,7 +11,7 @@
   // Global configuration
   // -------------------------------------------------------------------------
 
-  "layer": "bottom",
+  "layer": "top",
   "height": 32,
   "position": "top",
   "margin": "0 0 0 0",
@@ -29,7 +29,7 @@
 
   "modules-right": [
     //"custom/alsa",
-    //"pulseaudio",
+    
     //"sndio",
     "network",
     "memory",
@@ -37,6 +37,7 @@
     "temperature",
     "disk",
     "battery",
+    "pulseaudio",
     "clock#time"
   ],
 
@@ -162,7 +163,7 @@
   "sway/workspaces": {
     "all-outputs": false,
     "disable-scroll": false,
-    "format": "{icon}",
+    "format": "{icon}"
   },
 
   "pulseaudio": {
@@ -179,11 +180,11 @@
       "car": "",
       "default": ["", ""]
     },
-    "on-click": "pavucontrol"
+    "on-click": "pavucontrol-qt"
   },
 
   "temperature": {
-    "critical-threshold": 90,
+    "critical-threshold": 95,
     "hwmon-path": "/sys/class/hwmon/hwmon3/temp1_input",
     "interval": 2,
     //"format": "{icon} {temperatureC}°C",
@@ -206,5 +207,5 @@
     "signal": 11,
     "interval": 10,
     "tooltip": false
-  },
+  }
 }
