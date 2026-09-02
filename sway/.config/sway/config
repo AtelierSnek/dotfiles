@@ -231,6 +231,7 @@ assign {
   [class="Vivaldi"] number $ws2
   [app_id="vivaldi-stable"] number $ws2
   [class="discord"] number $ws3
+  [app_id="discord"] number $ws3
   [class="vesktop"] number $ws3
   [app_id="vesktop"] number $ws3
   [app_id="[Ss]ignal"] number $ws4
